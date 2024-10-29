@@ -52,3 +52,21 @@ h2 {
 p {
     color: var(--color_primario);
 }
+
+.chat-container {
+    margin-top: 20px;
+}
+.user-query, .ai-response {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+.user-query {
+    background-color: #e0e0e0;
+    text-align: left;
+}
+.ai-response {
+    background-color: #4285f4;
+    color: white;
+    text-align: left;
+}

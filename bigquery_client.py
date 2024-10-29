@@ -1,11 +1,20 @@
 from google.cloud import bigquery
 from dotenv import load_dotenv
 import os
+import vertexai
+from vertexai.generative_models import GenerativeModel
 
-load_dotenv()  # Carga las variables desde .env al entorno
-
-# Ahora puedes acceder a las variables de entorno
+#Iinicializar entorno
+load_dotenv() 
+client = bigquery.Client(project='dataton-2024-team-01-cofares')
 project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
+
+PROJECT_ID = "dataton-2024-team-01-cofares"  # @param {type:"string"}
+LOCATION = "us-central1"  # @param {type:"string"}
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+#Modelo seleccionado
+multimodal_model = GenerativeModel("gemini-1.5-flash-001")
 
 def get_products(prompt):
     client = bigquery.Client(project=project_id)
@@ -78,3 +87,27 @@ def get_products(prompt):
             "imagen_url": imagen_url
         })
     return products
+
+#Enviar respuesta al modelo GEMINI
+
+# Función para generar una respuesta basada en el contexto
+def generate_response(prompt, products):
+    # Crear un contexto a partir de los productos obtenidos
+    context = "Aquí están los productos encontrados:\n"
+    for product in products:
+        context += f"- Nombre: {product['nombre']}, Descripción: {product['descripcion']}, Modo de implementación: {product['modo_implementacion']}\n"
+
+    # Formar el prompt para el modelo
+    prompt = f"""{context}\nUsando la información relevante del contexto,
+    proporciona una respuesta a la consulta: {prompt}.
+    Si el contexto no proporciona \
+    ninguna información relevante \
+    responde con \
+    [No he podido encontrar un buen resultado \
+    para la consulta en la base de datos]
+    """
+
+    # Generar la respuesta
+    response = multimodal_model.generate_content(prompt)
+
+    return response.text
