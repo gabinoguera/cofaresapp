@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Búsqueda de productos</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <style>
+      body {
+        background-color: #183657;
+        padding-top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Buscar producto</h1>
+      <form action="/" method="POST">
+        <div style="display: flex; align-items: center; gap: 16px">
+          <div style="position: relative; flex-grow: 1">
+            <input
+              type="text"
+              name="prompt"
+              placeholder="Enter a prompt"
+              required
+            />
+          </div>
+          <button type="submit">Buscar</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

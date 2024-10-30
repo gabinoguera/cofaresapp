@@ -1,20 +1,29 @@
 from google.cloud import bigquery
 from dotenv import load_dotenv
 import os
+from google.cloud import bigquery
 import vertexai
 from vertexai.generative_models import GenerativeModel
+from google.cloud import discoveryengine_v1 as discoveryengine
 
-#Iinicializar entorno
-load_dotenv() 
+load_dotenv()  # Carga las variables desde .env al entorno
 client = bigquery.Client(project='dataton-2024-team-01-cofares')
+# Ahora puedes acceder a las variables de entorno
 project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
 
-PROJECT_ID = "dataton-2024-team-01-cofares"  # @param {type:"string"}
-LOCATION = "us-central1"  # @param {type:"string"}
+# Configuración del cliente de Vertex AI
+PROJECT_ID = "dataton-2024-team-01-cofares"
+LOCATION = "us-central1"
 vertexai.init(project=PROJECT_ID, location=LOCATION)
-
-#Modelo seleccionado
 multimodal_model = GenerativeModel("gemini-1.5-flash-001")
+
+# Inicializa el cliente de Discovery Engine
+discovery_client = discoveryengine.RankServiceClient()  
+
+class BigQueryClient:
+    def __init__(self, project_id):
+        self.client = bigquery.Client(project=project_id)
+    # ... otros métodos y funcionalidades ...
 
 def get_products(prompt):
     client = bigquery.Client(project=project_id)
@@ -84,11 +93,58 @@ def get_products(prompt):
             "codigo_nacional": row.codigo_nacional,
             "descripcion": descripcion,
             "modo_implementacion": modo_implementacion,
-            "imagen_url": imagen_url
+            "imagen_url": imagen_url,
+            "distance_to_query": row.distance_to_query
         })
     return products
 
-#Enviar respuesta al modelo GEMINI
+# Función para reranking de productos
+def rerank_products(prompt, products):
+    # Configura el nombre completo del recurso de configuración de ranking
+    ranking_config = discovery_client.ranking_config_path(
+        project=PROJECT_ID,
+        location=LOCATION,
+        ranking_config="default_ranking_config",
+    )
+    
+    # Prepara los registros para el ranking
+    records = [
+        discoveryengine.RankingRecord(
+            id=str(index),
+            title=product["nombre"],
+            content=product["descripcion"] + " " + product["modo_implementacion"]
+        )
+        for index, product in enumerate(products)
+    ]
+    
+    # Crea la solicitud de ranking
+    request = discoveryengine.RankRequest(
+        ranking_config=ranking_config,
+        model="semantic-ranker-512@latest",
+        top_n=5,  # Ajusta según sea necesario
+        query=prompt,
+        records=records,
+    )
+    
+    # Envía la solicitud de ranking
+    response = discovery_client.rank(request=request)  # Cambiado para usar el cliente de discovery
+    
+    # Procesa la respuesta
+    ranked_products = []
+    for record in response.records:
+        ranked_products.append(products[int(record.id)])
+    
+    return ranked_products
+
+PROJECT_ID = "dataton-2024-team-01-cofares"  # @param {type:"string"}
+LOCATION = "us-central1"  # @param {type:"string"}
+
+# Importa el modelo de Gemini Flash 1.5
+import vertexai
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+from vertexai.generative_models import GenerativeModel
+
+multimodal_model = GenerativeModel("gemini-1.5-flash-001")
 
 # Función para generar una respuesta basada en el contexto
 def generate_response(prompt, products):
@@ -104,10 +160,36 @@ def generate_response(prompt, products):
     ninguna información relevante \
     responde con \
     [No he podido encontrar un buen resultado \
-    para la consulta en la base de datos]
+    para la consulta en la base de datos] \
+    Formatea la respuesta en párrafos claros y, \
+    si es relevante, organiza los elementos en listas \
+    para que sea más fácil de leer.
     """
 
     # Generar la respuesta
     response = multimodal_model.generate_content(prompt)
 
     return response.text
+
+# Asegúrate de que este bloque solo se ejecute si el archivo es ejecutado directamente
+#if __name__ == "__main__":
+#    # Ejemplo de uso
+#    prompt = "producto para el colesterol"
+#    products = get_products(prompt)  # Llamar a la función para obtener productos#
+
+    # Imprimir los productos obtenidos
+#    print("Productos obtenidos:")
+#   for product in products:
+#        print(f"Nombre: {product['nombre']}, Descripción: {product['descripcion']}, Modo de implementación: {product['modo_implementacion']}, Distancia: {product['distance_to_query']}")
+
+    # Llamar a la función de reranking
+#   ranked_products = rerank_products(prompt, products)
+
+    # Imprimir los productos rankeados
+#    print("Productos rankeados:")
+#    for product in ranked_products:
+#        print(f"Nombre: {product['nombre']}, Distancia: {product['distance_to_query']}")
+
+    # Generar y mostrar la respuesta
+#    response_text = generate_response(prompt, products)#
+    print(response_text)
