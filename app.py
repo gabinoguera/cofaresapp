@@ -1,26 +1,49 @@
 # app.py
 from flask import Flask, render_template, request, jsonify
-from bigquery_client import get_products, generate_response, rerank_products  # Importar las funciones necesarias
+from dotenv import load_dotenv
+from intent_recognition import QueryManager  # Ensure QueryManager is correctly defined in intent_recognition.py
+import os
+import logging
 
+# Load environment variables
+load_dotenv()
+
+# Initialize Flask app
 app = Flask(__name__)
+
+# Fetch project ID and initialize QueryManager
+project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
+if not project_id:
+    logging.error("Environment variable 'GOOGLE_CLOUD_PROJECT' not found.")
+    raise ValueError("Missing 'GOOGLE_CLOUD_PROJECT' environment variable.")
+
+# Instantiate the QueryManager
+query_manager = QueryManager(project_id)
+
+@app.route("/", methods=["GET"])
+def home():
+    return render_template("home.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    # Verificar que el JSON de la solicitud no sea None
+    # Check for prompt in request
     if not request.json or 'prompt' not in request.json:
-        return jsonify({"error": "No se proporcionó un prompt"}), 400
+        return jsonify({"error": "No prompt provided"}), 400
 
     prompt = request.json.get("prompt")
-    
     try:
-        products = get_products(prompt)  # Obtener productos
-        ranked_products = rerank_products(prompt, products)  # Rerankear productos
-        response_text = generate_response(prompt, ranked_products)  # Generar respuesta usando productos rerankeados
-        return jsonify({"response": response_text})
+        # Process query through QueryManager
+        response_text = query_manager.process_query(prompt)
+
+        # Structure the response for the front-end
+        return jsonify({
+            "response": response_text
+        })
     except Exception as e:
-        # Manejo de errores generales
+        logging.exception("Error processing query")
         return jsonify({"error": str(e)}), 500
 
-@app.route("/")
-def home():
-    return render_template("home.html")
+if __name__ == "__main__":
+    # Enable logging and run app
+    logging.basicConfig(level=logging.INFO)
+    app.run(debug=True)
