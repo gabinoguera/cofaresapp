@@ -1,10 +1,14 @@
-from google.cloud import bigquery
-from dotenv import load_dotenv
 import os
 from google.cloud import bigquery
+from dotenv import load_dotenv
 import vertexai
-from vertexai.generative_models import GenerativeModel
 from google.cloud import discoveryengine_v1 as discoveryengine
+from vertexai import generative_models as genai  # Añadir esta línea
+from vertexai.generative_models import (
+    FunctionDeclaration,
+    GenerationConfig,
+    Tool,
+)
 
 load_dotenv()  # Carga las variables desde .env al entorno
 client = bigquery.Client(project='dataton-2024-team-01-cofares')
@@ -14,16 +18,9 @@ project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
 # Configuración del cliente de Vertex AI
 PROJECT_ID = "dataton-2024-team-01-cofares"
 LOCATION = "us-central1"
-vertexai.init(project=PROJECT_ID, location=LOCATION)
-multimodal_model = GenerativeModel("gemini-1.5-flash-001")
 
 # Inicializa el cliente de Discovery Engine
-discovery_client = discoveryengine.RankServiceClient()  
-
-class BigQueryClient:
-    def __init__(self, project_id):
-        self.client = bigquery.Client(project=project_id)
-    # ... otros métodos y funcionalidades ...
+discovery_client = discoveryengine.RankServiceClient() 
 
 def get_products(prompt):
     client = bigquery.Client(project=project_id)
@@ -59,7 +56,7 @@ def get_products(prompt):
       ON TRUE
     ORDER BY
       distance_to_query
-    LIMIT 5;
+    LIMIT 10;
     """.format(prompt)
     # Configura el parámetro para el prompt
     job_config = bigquery.QueryJobConfig(
@@ -98,16 +95,13 @@ def get_products(prompt):
         })
     return products
 
-# Función para reranking de productos
 def rerank_products(prompt, products):
-    # Configura el nombre completo del recurso de configuración de ranking
     ranking_config = discovery_client.ranking_config_path(
         project=PROJECT_ID,
         location=LOCATION,
         ranking_config="default_ranking_config",
     )
     
-    # Prepara los registros para el ranking
     records = [
         discoveryengine.RankingRecord(
             id=str(index),
@@ -117,79 +111,127 @@ def rerank_products(prompt, products):
         for index, product in enumerate(products)
     ]
     
-    # Crea la solicitud de ranking
     request = discoveryengine.RankRequest(
         ranking_config=ranking_config,
         model="semantic-ranker-512@latest",
-        top_n=5,  # Ajusta según sea necesario
+        top_n=5,
         query=prompt,
         records=records,
     )
     
-    # Envía la solicitud de ranking
-    response = discovery_client.rank(request=request)  # Cambiado para usar el cliente de discovery
+    response = discovery_client.rank(request=request)
     
-    # Procesa la respuesta
-    ranked_products = []
-    for record in response.records:
-        ranked_products.append(products[int(record.id)])
+    # Aseguramos que los productos están formateados según el esquema
+    ranked_products = [
+        {
+            "codigo_web": products[int(record.id)]["codigo_web"],
+            "nombre": products[int(record.id)]["nombre"],
+            "codigo_nacional": products[int(record.id)]["codigo_nacional"],
+            "descripcion": products[int(record.id)]["descripcion"],
+            "modo_implementacion": products[int(record.id)]["modo_implementacion"],
+            "imagen_url": products[int(record.id)]["imagen_url"],
+            "distance_to_query": products[int(record.id)]["distance_to_query"]
+        }
+        for record in response.records
+    ]
     
-    return ranked_products
+    return {"products": ranked_products}
 
-PROJECT_ID = "dataton-2024-team-01-cofares"  # @param {type:"string"}
-LOCATION = "us-central1"  # @param {type:"string"}
+# Define el schema
+product_schema = FunctionDeclaration(
+    name="product_query",
+    description="Fetches relevant product information based on a search prompt.",
+    parameters={
+        "type": "object",
+        "properties": {
+            "products": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "codigo_web": {"type": "string", "description": "Product web code"},
+                        "nombre": {"type": "string", "description": "Product name"},
+                        "codigo_nacional": {"type": "string", "description": "National product code"},
+                        "descripcion": {"type": "string", "description": "Product description"},
+                        "modo_implementacion": {"type": "string", "description": "Mode of implementation"},
+                        "imagen_url": {"type": "string", "description": "Image URL"},
+                        "distance_to_query": {"type": "number", "description": "Semantic distance to query"}
+                    }
+                }
+            }
+        }
+    }
+)
 
-# Importa el modelo de Gemini Flash 1.5
-import vertexai
+# Define tools antes de inicializar el modelo
+tools = [Tool(function_declarations=[product_schema])]
+
+
 vertexai.init(project=PROJECT_ID, location=LOCATION)
-from vertexai.generative_models import GenerativeModel
 
-multimodal_model = GenerativeModel("gemini-1.5-flash-001")
+# Model definition
+multimodal_model = genai.GenerativeModel(
+"gemini-1.5-flash",
+generation_config=GenerationConfig(temperature=0),
+tools=tools)
 
-# Función para generar una respuesta basada en el contexto
-def generate_response(prompt, products):
-    # Crear un contexto a partir de los productos obtenidos
-    context = "Aquí están los productos encontrados:\n"
-    for product in products:
-        context += f"- Nombre: {product['nombre']}, Descripción: {product['descripcion']}, Modo de implementación: {product['modo_implementacion']}\n"
+chat = multimodal_model.start_chat(response_validation=False)
 
-    # Formar el prompt para el modelo
-    prompt = f"""{context}\nUsando la información relevante del contexto,
-    proporciona una respuesta a la consulta: {prompt}.
-    Si el contexto no proporciona \
-    ninguna información relevante \
-    responde con \
-    [No he podido encontrar un buen resultado \
-    para la consulta en la base de datos] \
-    Formatea la respuesta en párrafos claros y, \
-    si es relevante, organiza los elementos en listas \
-    para que sea más fácil de leer.
+def generate_response(prompt):  # Eliminamos el parámetro products
+    #chat = multimodal_model.start_chat()
+
+    instruction_prompt = f"""
+    Eres un asistente farmacéutico experto. 
+    
+    Consulta recibida de un farmacéutico: "{prompt}"
+    
+    Por favor, responde de la siguiente manera:
+    
+    - Saluda a los usuarios y pregúntales en qué puedes ayudarles hoy.
+    - Resume la petición del usuario y pídale que confirme que ha entendido correctamente.
+    - Si es necesario, pida detalles aclaratorios.
+    - Utilice ${tools} para recibir un listado de productos rankeados para ayudar al usuario con su tarea.
+    - Agradezca al usuario su colaboración y despídase.
     """
 
-    # Generar la respuesta
-    response = multimodal_model.generate_content(prompt)
-
-    return response.text
-
-# Asegúrate de que este bloque solo se ejecute si el archivo es ejecutado directamente
-#if __name__ == "__main__":
-#    # Ejemplo de uso
-#    prompt = "producto para el colesterol"
-#    products = get_products(prompt)  # Llamar a la función para obtener productos#
-
-    # Imprimir los productos obtenidos
-#    print("Productos obtenidos:")
-#   for product in products:
-#        print(f"Nombre: {product['nombre']}, Descripción: {product['descripcion']}, Modo de implementación: {product['modo_implementacion']}, Distancia: {product['distance_to_query']}")
-
-    # Llamar a la función de reranking
-#   ranked_products = rerank_products(prompt, products)
-
-    # Imprimir los productos rankeados
-#    print("Productos rankeados:")
-#    for product in ranked_products:
-#        print(f"Nombre: {product['nombre']}, Distancia: {product['distance_to_query']}")
-
-    # Generar y mostrar la respuesta
-#    response_text = generate_response(prompt, products)#
-    print(response_text)
+    try:
+        response = chat.send_message(instruction_prompt)
+        response.candidates[0].content.parts[0]
+        
+        # Verificar si hay una llamada a función
+        for candidate in response.candidates:
+            for part in candidate.content.parts:
+                if hasattr(part, 'function_call') and part.function_call:
+                    # Ejecutar búsqueda de productos
+                    products = get_products(prompt)
+                    if not products:
+                        return "Lo siento, no encontré productos que coincidan con tu búsqueda."
+                    
+                    ranked_products = rerank_products(prompt, products)
+                    
+                    # Enviar los resultados al modelo para generar una respuesta contextual
+                    results_prompt = f"""
+                    Basado en la búsqueda "{prompt}", he encontrado estos productos:
+                    {[product['nombre'] for product in ranked_products['products']]}
+                    
+                    Por favor, genera una respuesta útil que:
+                    1. Mencione los productos encontrados
+                    2. Explique por qué son relevantes
+                    3. Proporcione recomendaciones de uso
+                    """
+                    
+                    final_response = chat.send_message(results_prompt)
+                    return {
+                        "type": "product_search",
+                        "message": final_response.text,
+                        "products": ranked_products["products"]
+                    }
+                
+        # Si no hay llamada a función, devolver la respuesta conversacional
+        return {
+            "type": "conversation",
+            "message": response.text
+        }
+                    
+    except Exception as e:
+        return f"Lo siento, ocurrió un error: {str(e)}"

@@ -1,49 +1,38 @@
-# app.py
 from flask import Flask, render_template, request, jsonify
-from dotenv import load_dotenv
-from intent_recognition import QueryManager  # Ensure QueryManager is correctly defined in intent_recognition.py
-import os
+from bigquery_client import generate_response  # Importa la función desde tu backend
 import logging
 
-# Load environment variables
-load_dotenv()
+# Configuración de logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-# Initialize Flask app
+# Inicializar Flask
 app = Flask(__name__)
-
-# Fetch project ID and initialize QueryManager
-project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
-if not project_id:
-    logging.error("Environment variable 'GOOGLE_CLOUD_PROJECT' not found.")
-    raise ValueError("Missing 'GOOGLE_CLOUD_PROJECT' environment variable.")
-
-# Instantiate the QueryManager
-query_manager = QueryManager(project_id)
 
 @app.route("/", methods=["GET"])
 def home():
+    """Cargar la interfaz principal del chatbot."""
     return render_template("home.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    # Check for prompt in request
-    if not request.json or 'prompt' not in request.json:
-        return jsonify({"error": "No prompt provided"}), 400
-
-    prompt = request.json.get("prompt")
+    """Procesa las consultas del usuario y devuelve la respuesta del backend."""
     try:
-        # Process query through QueryManager
-        response_text = query_manager.process_query(prompt)
+        data = request.get_json()
+        prompt = data.get("prompt", "")
 
-        # Structure the response for the front-end
-        return jsonify({
-            "response": response_text
-        })
+        if not prompt:
+            return jsonify({"error": "No se proporcionó ningún prompt"}), 400
+
+        # Llama a la función de respuesta en el backend
+        response = generate_response(prompt)
+        
+        # Envía solo el mensaje generado al frontend
+        return jsonify({"response": response["message"] if isinstance(response, dict) else response})
+
     except Exception as e:
-        logging.exception("Error processing query")
-        return jsonify({"error": str(e)}), 500
+        logger.error(f"Error en /chat: {str(e)}", exc_info=True)
+        return jsonify({"error": "Error interno del servidor"}), 500
 
 if __name__ == "__main__":
-    # Enable logging and run app
-    logging.basicConfig(level=logging.INFO)
     app.run(debug=True)

@@ -1,12 +1,9 @@
 from google.cloud import bigquery, discoveryengine_v1 as discoveryengine
-from vertexai.preview.generative_models import GenerativeModel, Tool, FunctionDeclaration, AutomaticFunctionCallingResponder
-
 import vertexai
 from vertexai.generative_models import (
     FunctionDeclaration,
     Tool,
-    GenerativeModel,
-    AutomaticFunctionCallingResponder
+    GenerativeModel
 )
 
 import os
@@ -53,7 +50,7 @@ class BigQueryClient:
           ON d.codigo_web = e.title
         INNER JOIN QueryEmbedding AS qe ON TRUE
         ORDER BY distance_to_query
-        LIMIT 5;
+        LIMIT 10;
         """
         job_config = bigquery.QueryJobConfig(
             query_parameters=[
@@ -107,53 +104,49 @@ class BigQueryClient:
 class QueryManager:
     def __init__(self, project_id):
         self.bigquery_client = BigQueryClient(project_id)
-        self.multimodal_model = GenerativeModel("gemini-1.5-flash-001")
+        self.multimodal_model = multimodal_model
 
     def process_query(self, prompt):
-        # Define Function Declarations for Gemini to understand available tools
-        function_declarations = [
-            FunctionDeclaration(
-                name="product_query",
-                description="Fetches relevant product information from the database based on the query.",
-                parameters={
-                    "type": "object",
-                    "properties": {
-                        "prompt": {
-                            "type": "string",
-                            "description": "The query text for the product search"
-                        }
-                    },
-                    "required": ["prompt"]
-                }
-            )
-        ]
-
-        # Define Tool instance with the get_products function
-        tool = Tool(
-            function=self.bigquery_client.get_products,
-            function_declaration=function_declarations[0]
+        # Define the function declaration
+        function_declaration = FunctionDeclaration(
+            name="product_query",
+            description="Retrieves product information from the database based on the query.",
+            parameters={
+                "type": "object",
+                "properties": {
+                    "prompt": {
+                        "type": "string",
+                        "description": "The query text for the product search"
+                    }
+                },
+                "required": ["prompt"]
+            }
         )
 
-        # Build the prompt to clarify the user's intent
+        # Create the tool with the function_declaration
+        tool = Tool(function_declarations=[function_declaration])
+
+        # Update prompt for clarity and specific instructions
         formatted_prompt = f"""
         Consulta recibida de un farmacéutico:
         "{prompt}"
         Responde de la siguiente manera:
-        - Si es una solicitud de búsqueda de producto, usa 'product_query' y activa la función de búsqueda.
-        - Si es un saludo, responde con un saludo.
-        - Si requiere más detalles, responde con 'clarify_request'.
+        - Si el usuario pregunta por un producto o hace una solicitud específica sobre productos, usa 'product_query' para activar la función de búsqueda.
+        - Si el usuario solo está saludando o hace una pregunta general, responde de manera adecuada y no actives la función de búsqueda.
+        - Si no comprendes completamente la consulta, responde con 'clarify_request' para pedir más detalles.
         """
 
-        # Use Gemini to interpret the intent and potentially call functions as needed
+        # Generate the response using tools and function declarations
         response = self.multimodal_model.generate_content(
             formatted_prompt,
-            tools=[tool],
-            automatic_function_calling=AutomaticFunctionCallingResponder.AUTO
+            tools=[tool]
         )
 
-        # Handle the output based on the response's intent
-        if response.tool == "product_query":
-            products = response.tool_call_args.get("results", [])
+        # Check if a function was called and handle it
+        function_call = response.candidates[0].content.parts[0].function_call
+        if function_call and function_call.name == "product_query":
+            # Only proceed with product search if the model's response indicates it's a product query
+            products = self.bigquery_client.get_products(prompt)
             if not products:
                 return "Lo siento, no encontré ningún producto que coincida con la búsqueda."
             ranked_products = self.bigquery_client.rerank_products(prompt, products)
@@ -162,6 +155,7 @@ class QueryManager:
         elif 'clarify_request' in response.text:
             return "¿Podrías proporcionar más detalles sobre el producto que buscas?"
 
+        # If the response is a general greeting or other reply, return it directly
         return response.text if response.text else "Lo siento, no pude procesar tu solicitud."
 
     def generate_response(self, prompt, products):
