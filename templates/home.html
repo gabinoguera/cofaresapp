@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <div class="header">
+        <img src="{{ url_for('static', filename='logo-cofares-png.png') }}" alt="Cofares Logo" class="logo">
+        <h1 class="main-title">COFARMA</h1>
+    </div>
     <div class="search-container">
-        <h1>Cofarma</h1>
         <div class="search-box">
             <input type="text" id="user-input" class="user-query" placeholder="Ingresa un prompt">
             <button onclick="sendMessage()">Buscar</button>
@@ -16,6 +19,7 @@
     </div>
 
     <div id="chatbox" class="chat-container"></div>
+    <p class="sub-title">Un producto desarrollado por DataSetA 🍄</p>
 
     <script>
         function sendMessage() {
