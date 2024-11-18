@@ -1,4 +1,5 @@
 import os
+import logging
 from google.cloud import bigquery
 from dotenv import load_dotenv
 import vertexai
@@ -9,6 +10,18 @@ from vertexai.generative_models import (
     GenerationConfig,
     Tool,
 )
+
+# Configuración de logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("app.log"),  # Archivo de log
+        logging.StreamHandler()            # Consola
+    ]
+)
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()  # Carga las variables desde .env al entorno
 client = bigquery.Client(project='dataton-2024-team-01-cofares')
@@ -177,12 +190,13 @@ tools=tools)
 
 chat = multimodal_model.start_chat(response_validation=False)
 
+#INTENTAMOS DEVOLVER LA LISTA DE PRODUCTOS RANKED
 def generate_response(prompt):  # Eliminamos el parámetro products
     #chat = multimodal_model.start_chat()
 
     instruction_prompt = f"""
     # Instrucción
-    Eres Cofarel, un asistente farmacéutico experto.\
+    Eres Cofinder, un asistente farmacéutico experto.\
     Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.\
     Te proporcionamos una lista de productos procedentes de la base de datos y previamente rankeados por relevancia.\
     Primero debes leer atentamente la entrada del usuario,\
@@ -195,12 +209,12 @@ def generate_response(prompt):  # Eliminamos el parámetro products
     Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.\
     
     ## Criterios
-    - Si la entrada del profesional de farmacia es un saludo, preséntese cordialmente como Cofarel el asistente de búsqueda.\
+    - Si la entrada del profesional de farmacia es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\
         Ejemplos de saludos: «hola», “hola”, “¿Qué tal?”.\
     - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.\
     - Si la entrada solicita búsquedas no relacionadas con productos de farmacia, aclare que ese no es su propósito como asistente de búsqueda de productos de farmacia.\
         Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?”.\
-    - Cuando la entrada sea relevante para activar la búsqueda de productos de farmacia, utiliza "tools" para recibir una lista de productos de farmacia clasificados que ayuden al usuario con su tarea. Acepta la solicitud del usuario y proporciónale la lista de productos.
+    - Cuando la entrada sea relevante para activar la búsqueda de productos de farmacia, utiliza "tools" para recibir una lista de productos de farmacia clasificados que ayuden al usuario con su tarea. Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.
     - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker.
 
     ### Prompt
@@ -216,6 +230,8 @@ def generate_response(prompt):  # Eliminamos el parámetro products
         for candidate in response.candidates:
             for part in candidate.content.parts:
                 if hasattr(part, 'function_call') and part.function_call:
+                    #Capturar prompt resultante
+                    logger.info(f"Consulta enviada al RAG: {prompt}")  # Agregar logging
                     # Ejecutar búsqueda de productos
                     products = get_products(prompt)
                     if not products:
@@ -223,20 +239,10 @@ def generate_response(prompt):  # Eliminamos el parámetro products
                     
                     ranked_products = rerank_products(prompt, products)
                     
-                    # Enviar los resultados al modelo para generar una respuesta contextual
-                    results_prompt = f"""
-                    Basado en la búsqueda "{prompt}", he encontrado estos productos:
-                    {[product['nombre'] for product in ranked_products['products']]}
-                    
-                    Por favor, genera una respuesta útil que:
-                    1. Mencione los productos encontrados
-                    2. Explique por qué son relevantes
-                    """
-                    
-                    final_response = chat.send_message(results_prompt)
+                    # Devolver directamente la lista de productos
                     return {
                         "type": "product_search",
-                        "message": final_response.text,
+                        "message": "He encontrado los siguientes productos:",
                         "products": ranked_products["products"]
                     }
                 

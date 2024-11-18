@@ -26,7 +26,20 @@ def chat():
 
         # Llama a la función de respuesta en el backend
         response = generate_response(prompt)
-        
+
+        # Filtrar solo los campos necesarios
+        if response.get("type") == "product_search":
+            products = response["products"]
+            filtered_products = [
+                {
+                    "codigo_web": product["codigo_web"],
+                    "nombre": product["nombre"],
+                    "descripcion": product["descripcion"]
+                }
+                for product in products
+            ]
+            return jsonify({"response": response["message"], "products": filtered_products})
+
         # Envía solo el mensaje generado al frontend
         return jsonify({"response": response["message"] if isinstance(response, dict) else response})
 

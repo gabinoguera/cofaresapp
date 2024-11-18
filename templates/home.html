@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cofarel Chatbot</title>
+    <title>Cofinder Chatbot</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="header">
         <img src="{{ url_for('static', filename='logo-cofares-png.png') }}" alt="Cofares Logo" class="logo">
-        <h1 class="main-title">COFAREL</h1>
+        <h1 class="main-title">COFINDER</h1>
     </div>
     <div class="search-container">
         <div class="search-box">
@@ -42,7 +42,16 @@
             .then(response => response.json())
             .then(data => {
                 // Añadir solo la respuesta generada por el bot al chat
-                addMessageToChat("bot-message", data.response);
+                if (data.products) {
+                    let productList = "<ul>";
+                    data.products.forEach(product => {
+                        productList += `<li><strong>${product.nombre}</strong> (Código: ${product.codigo_web}) - ${product.descripcion}</li>`;
+                    });
+                    productList += "</ul>";
+                    addMessageToChat("bot-message", productList);
+                } else {
+                    addMessageToChat("bot-message", data.response);
+                }
             });
         }
 
