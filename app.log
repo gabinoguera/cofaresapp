@@ -1,11 +1,63 @@
-2024-11-18 13:36:58,829 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2024-11-19 13:40:15,332 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on http://127.0.0.1:5000
-2024-11-18 13:36:58,829 - INFO - [33mPress CTRL+C to quit[0m
-2024-11-18 13:37:04,035 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:04] "GET / HTTP/1.1" 200 -
-2024-11-18 13:37:04,144 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:04] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
-2024-11-18 13:37:04,145 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
-2024-11-18 13:37:25,698 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:25] "POST /chat HTTP/1.1" 200 -
-2024-11-18 13:37:40,786 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:40] "POST /chat HTTP/1.1" 200 -
-2024-11-18 13:37:51,193 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:51] "POST /chat HTTP/1.1" 200 -
-2024-11-18 13:38:00,716 - INFO - Consulta enviada al RAG: una almohada inflable
-2024-11-18 13:38:03,355 - INFO - 127.0.0.1 - - [18/Nov/2024 13:38:03] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:40:15,332 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 13:40:17,443 - INFO - 127.0.0.1 - - [19/Nov/2024 13:40:17] "GET / HTTP/1.1" 200 -
+2024-11-19 13:40:17,572 - INFO - 127.0.0.1 - - [19/Nov/2024 13:40:17] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 13:40:17,573 - INFO - 127.0.0.1 - - [19/Nov/2024 13:40:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 13:40:22,733 - INFO - Historial de mensajes:
+2024-11-19 13:40:22,733 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 13:40:22,734 - INFO - Mensaje 2 - Role: assistant, Content: 
+2024-11-19 13:40:23,832 - INFO - Query refinada generada a partir del resumen:
+El usuario sólo ha saludado ("hola"), por lo que aún no hay palabras clave relevantes para una búsqueda de productos.
+2024-11-19 13:40:23,833 - INFO - 127.0.0.1 - - [19/Nov/2024 13:40:23] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:43:25,574 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 13:43:25,574 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 13:43:27,154 - INFO - 127.0.0.1 - - [19/Nov/2024 13:43:27] "GET / HTTP/1.1" 200 -
+2024-11-19 13:43:27,739 - INFO - 127.0.0.1 - - [19/Nov/2024 13:43:27] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 13:43:27,739 - INFO - 127.0.0.1 - - [19/Nov/2024 13:43:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 13:43:35,425 - INFO - Historial de mensajes:
+2024-11-19 13:43:35,426 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 13:43:35,426 - INFO - Mensaje 2 - Role: assistant, Content: ¡Hola! Soy Cofinder, tu asistente experto en productos de farmacia. ¿Qué puedo buscar para ti hoy? 
+
+2024-11-19 13:43:36,424 - INFO - Query refinada generada a partir del resumen:
+El usuario ha saludado al asistente. No hay palabras clave para la búsqueda de productos todavía.
+2024-11-19 13:43:36,426 - INFO - 127.0.0.1 - - [19/Nov/2024 13:43:36] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:44:08,254 - INFO - 127.0.0.1 - - [19/Nov/2024 13:44:08] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:54:40,057 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 13:54:40,058 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 13:54:48,275 - INFO - 127.0.0.1 - - [19/Nov/2024 13:54:48] "GET / HTTP/1.1" 200 -
+2024-11-19 13:54:48,309 - INFO - 127.0.0.1 - - [19/Nov/2024 13:54:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 13:54:48,309 - INFO - 127.0.0.1 - - [19/Nov/2024 13:54:48] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 13:54:56,293 - INFO - Historial de mensajes:
+2024-11-19 13:54:56,294 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 13:54:56,294 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 13:54:56,907 - INFO - Query refinada generada a partir del resumen:
+No hay palabras clave relevantes en la consulta "hola". El usuario solo está saludando.
+2024-11-19 13:54:56,909 - INFO - 127.0.0.1 - - [19/Nov/2024 13:54:56] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:55:19,344 - INFO - Historial de mensajes:
+2024-11-19 13:55:19,345 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 13:55:19,345 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 13:55:19,345 - INFO - Mensaje 3 - Role: user, Content: busco una crema para la piel
+2024-11-19 13:55:19,345 - INFO - Mensaje 4 - Role: assistant, Content: Entiendo. ¿Puedes decirme para qué tipo de piel la necesitas? ¿Para piel seca, grasa, sensible, o con algún problema específico? 
+
+2024-11-19 13:55:19,946 - INFO - Query refinada generada a partir del resumen:
+Las palabras clave relevantes de la consulta son "crema" y "piel".
+2024-11-19 13:55:19,947 - INFO - 127.0.0.1 - - [19/Nov/2024 13:55:19] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:55:49,848 - INFO - Historial de mensajes:
+2024-11-19 13:55:49,849 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 13:55:49,849 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 13:55:49,849 - INFO - Mensaje 3 - Role: user, Content: busco una crema para la piel
+2024-11-19 13:55:49,849 - INFO - Mensaje 4 - Role: assistant, Content: Entiendo. ¿Puedes decirme para qué tipo de piel la necesitas? ¿Para piel seca, grasa, sensible, o con algún problema específico? 
+
+2024-11-19 13:55:49,849 - INFO - Mensaje 5 - Role: user, Content: algo para el rejuvenecimiento de la piel de mis manos
+2024-11-19 13:55:49,849 - INFO - Mensaje 6 - Role: assistant, Content: Perfecto. Para ayudarte a encontrar la mejor opción, ¿puedes decirme si buscas una crema hidratante, un tratamiento antiedad o algo específico para las manchas? 
+
+2024-11-19 13:55:50,460 - INFO - Query refinada generada a partir del resumen:
+Las palabras clave relevantes de la consulta son "rejuvenecimiento", "piel" y "manos".
+2024-11-19 13:55:50,461 - INFO - 127.0.0.1 - - [19/Nov/2024 13:55:50] "POST /chat HTTP/1.1" 200 -
+2024-11-19 13:56:02,446 - INFO - 127.0.0.1 - - [19/Nov/2024 13:56:02] "POST /chat HTTP/1.1" 200 -

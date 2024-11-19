@@ -11,6 +11,21 @@ from vertexai.generative_models import (
     Tool,
 )
 
+load_dotenv()  # Carga las variables desde .env al entorno
+client = bigquery.Client(project='dataton-2024-team-01-cofares')
+# Ahora puedes acceder a las variables de entorno
+project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
+
+# Configuración del cliente de Vertex AI
+PROJECT_ID = "dataton-2024-team-01-cofares"
+LOCATION = "us-central1"
+
+# Inicializa el Vertexai
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+# Inicializa el cliente de Discovery Engine
+discovery_client = discoveryengine.RankServiceClient()
+
 # Configuración de logging
 logging.basicConfig(
     level=logging.INFO,
@@ -23,19 +38,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-load_dotenv()  # Carga las variables desde .env al entorno
-client = bigquery.Client(project='dataton-2024-team-01-cofares')
-# Ahora puedes acceder a las variables de entorno
-project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
-
-# Configuración del cliente de Vertex AI
-PROJECT_ID = "dataton-2024-team-01-cofares"
-LOCATION = "us-central1"
-
-# Inicializa el cliente de Discovery Engine
-discovery_client = discoveryengine.RankServiceClient() 
-
-def get_products(prompt):
+def get_products(refined_query):
     client = bigquery.Client(project=project_id)
     query = """
     WITH QueryEmbedding AS (
@@ -70,11 +73,11 @@ def get_products(prompt):
     ORDER BY
       distance_to_query
     LIMIT 10;
-    """.format(prompt)
+    """.format(refined_query)
     # Configura el parámetro para el prompt
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
-            bigquery.ScalarQueryParameter("prompt", "STRING", prompt)
+            bigquery.ScalarQueryParameter("prompt", "STRING", refined_query)
         ]
     )
 
@@ -108,7 +111,7 @@ def get_products(prompt):
         })
     return products
 
-def rerank_products(prompt, products):
+def rerank_products(refined_query, products):
     ranking_config = discovery_client.ranking_config_path(
         project=PROJECT_ID,
         location=LOCATION,
@@ -128,7 +131,7 @@ def rerank_products(prompt, products):
         ranking_config=ranking_config,
         model="semantic-ranker-512@latest",
         top_n=10, # cantidad de productos a rankear
-        query=prompt,
+        query=refined_query,
         records=records,
     )
     
@@ -179,9 +182,6 @@ product_schema = FunctionDeclaration(
 # Define tools antes de inicializar el modelo
 tools = [Tool(function_declarations=[product_schema])]
 
-
-vertexai.init(project=PROJECT_ID, location=LOCATION)
-
 # Model definition
 multimodal_model = genai.GenerativeModel(
 "gemini-1.5-flash",
@@ -190,10 +190,12 @@ tools=tools)
 
 chat = multimodal_model.start_chat(response_validation=False)
 
-#INTENTAMOS DEVOLVER LA LISTA DE PRODUCTOS RANKED
-def generate_response(prompt):  # Eliminamos el parámetro products
-    #chat = multimodal_model.start_chat()
+# Lista para almacenar el historial de mensajes
+message_history = []
 
+#INTENTAMOS DEVOLVER LA LISTA DE PRODUCTOS RANKED
+# INTENTAMOS DEVOLVER LA LISTA DE PRODUCTOS RANKED
+def generate_response(prompt):
     instruction_prompt = f"""
     # Instrucción
     Eres Cofinder, un asistente farmacéutico experto.\
@@ -206,7 +208,8 @@ def generate_response(prompt):  # Eliminamos el parámetro products
     ## Definición de la herramienta
     Tienes acceso a una lista de productos de una base de datos de productos de farmacia "{tools}"\
     que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional de farmacia.\
-    Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.\
+    Las instrucciones para realizar la tarea de respuesta se proporcionan en las consultas del usuario.\
+    Cuando envies el prompt al RAG reescribe la consulta para que sea más precisa y eficiente.
     
     ## Criterios
     - Si la entrada del profesional de farmacia es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\
@@ -223,34 +226,65 @@ def generate_response(prompt):  # Eliminamos el parámetro products
     """
 
     try:
+        # Actualizar el historial de mensajes antes de enviar el mensaje al modelo
+        message_history.append({"role": "user", "content": prompt})
+
+        # Enviar el mensaje al modelo
         response = chat.send_message(instruction_prompt)
-        response.candidates[0].content.parts[0]
+
+        # Registrar la respuesta del modelo en el historial
+        message_history.append({"role": "assistant", "content": response.text})
+
+        # Inspeccionar y loggear el historial de mensajes
+        logger.info("Historial de mensajes:")
+        for idx, message in enumerate(message_history):
+            logger.info(f"Mensaje {idx + 1} - Role: {message['role']}, Content: {message['content']}")
+
+        # Construir un prompt para que Gemini resuma la interacción
+        resumen_prompt = """
+        #Instrucción
         
-        # Verificar si hay una llamada a función
-        for candidate in response.candidates:
-            for part in candidate.content.parts:
-                if hasattr(part, 'function_call') and part.function_call:
-                    #Capturar prompt resultante
-                    logger.info(f"Consulta enviada al RAG: {prompt}")  # Agregar logging
-                    # Ejecutar búsqueda de productos
-                    products = get_products(prompt)
-                    if not products:
-                        return "Lo siento, no encontré productos que coincidan con tu búsqueda."
-                    
-                    ranked_products = rerank_products(prompt, products)
-                    
-                    # Devolver directamente la lista de productos
-                    return {
-                        "type": "product_search",
-                        "message": "He encontrado los siguientes productos:",
-                        "products": ranked_products["products"]
-                    }
-                
-        # Si no hay llamada a función, devolver la respuesta conversacional
-        return {
-            "type": "conversation",
-            "message": response.text
-        }
-                    
+        identifique las palabras clave relevantes de la consulta
+
+        # Historial de la conversación
+        {}
+        
+        # Resumen
+        """.format("\n".join([f"{message['role']}: {message['content']}" for message in message_history]))
+
+        # Enviar el prompt de resumen al modelo
+        resumen_response = chat.send_message(resumen_prompt)
+
+        # Obtener el resumen generado por el modelo
+        refined_query = resumen_response.text.strip()
+
+        # Logging para depuración
+        logger.info(f"Query refinada generada a partir del resumen:\n{refined_query}")
+
+        # Manejo de la lógica para el RAG o conversación
+        if "product_search" in response.text:
+            products = get_products(refined_query)
+            if not products:
+                return {
+                    "type": "error",
+                    "message": "Lo siento, no encontré productos que coincidan con tu búsqueda."
+                }
+
+            ranked_products = rerank_products(refined_query, products)
+
+            return {
+                "type": "product_search",
+                "message": "He encontrado los siguientes productos:",
+                "products": ranked_products["products"]
+            }
+        else:
+            return {
+                "type": "conversation",
+                "message": response.text
+            }
+
     except Exception as e:
-        return f"Lo siento, ocurrió un error: {str(e)}"
+        return {
+            "type": "error",
+            "message": f"Lo siento, ocurrió un error: {str(e)}"
+        }

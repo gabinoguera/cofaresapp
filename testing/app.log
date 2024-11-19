@@ -1,0 +1,32 @@
+2024-11-19 09:57:05,538 - INFO - Historial de mensajes:
+2024-11-19 09:57:05,542 - INFO - Mensaje 1 - Role: user, Content: busco algo para dormir mejor
+2024-11-19 09:57:05,545 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de producto buscas para dormir mejor? ¿Prefieres un producto natural, un medicamento o algo específico? 
+
+2024-11-19 09:57:06,070 - INFO - Query refinada generada a partir del resumen:
+El usuario busca un producto para mejorar el sueño. Está interesado en productos naturales, medicamentos o algo específico.
+2024-11-19 11:03:52,730 - INFO - Query refinada generada a partir del resumen:
+El usuario ha iniciado la conversación con un saludo.
+2024-11-19 11:04:05,633 - INFO - Query refinada generada a partir del resumen:
+Hola! Soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy?
+2024-11-19 11:05:54,290 - INFO - Historial de mensajes:
+2024-11-19 11:05:54,292 - INFO - Mensaje 1 - Role: user, Content: busco algo para el dolor de cabeza
+2024-11-19 11:05:54,293 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de dolor de cabeza tiene el paciente? ¿Es un dolor de cabeza tensional, migraña o algo más específico? 
+
+2024-11-19 11:05:54,862 - INFO - Query refinada generada a partir del resumen:
+El usuario busca un producto para aliviar el dolor de cabeza.  Palabras clave: dolor de cabeza, analgésico.
+2024-11-19 11:07:13,064 - INFO - Historial de mensajes:
+2024-11-19 11:07:13,066 - INFO - Mensaje 1 - Role: user, Content: busco algo para el dolor de cabeza
+2024-11-19 11:07:13,067 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de dolor de cabeza tiene el paciente? ¿Es un dolor de cabeza tensional, migraña o algo más específico? 
+
+2024-11-19 11:07:13,067 - INFO - Mensaje 3 - Role: user, Content: es un dolor tensional
+2024-11-19 11:07:13,068 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, ¿puedes decirme qué tipo de analgésico buscas para el dolor tensional? ¿Prefieres algo de liberación rápida o de acción prolongada? 
+
+2024-11-19 11:07:13,729 - INFO - Query refinada generada a partir del resumen:
+El usuario busca un analgésico para el dolor de cabeza tensional. Palabras clave: dolor de cabeza tensional, analgésico, liberación rápida, acción prolongada.
+2024-11-19 13:34:36,156 - INFO - Historial de mensajes:
+2024-11-19 13:34:36,158 - INFO - Mensaje 1 - Role: user, Content: crema para rejuvenecimiento de la piel
+2024-11-19 13:34:36,160 - INFO - Mensaje 2 - Role: user, Content: hola
+2024-11-19 13:34:36,168 - INFO - Mensaje 3 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 13:34:36,713 - INFO - Query refinada generada a partir del resumen:
+El usuario está buscando una crema para rejuvenecimiento de la piel.
