@@ -9,3 +9,195 @@
 2024-11-18 13:37:51,193 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:51] "POST /chat HTTP/1.1" 200 -
 2024-11-18 13:38:00,716 - INFO - Consulta enviada al RAG: una almohada inflable
 2024-11-18 13:38:03,355 - INFO - 127.0.0.1 - - [18/Nov/2024 13:38:03] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:27:30,989 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:27:30,989 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:27:37,520 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:37] "GET / HTTP/1.1" 200 -
+2024-11-19 21:27:37,595 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:37] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:27:37,595 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:27:47,137 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:47] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:27:58,583 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:58] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:28:15,255 - INFO - Query refinada generada: Por favor, proporciona el historial de la conversación para que pueda extraer las palabras clave más importantes.
+2024-11-19 21:28:20,657 - INFO - 127.0.0.1 - - [19/Nov/2024 21:28:20] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:36:17,130 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:36:17,131 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:36:18,256 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:18] "GET / HTTP/1.1" 200 -
+2024-11-19 21:36:18,414 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:36:18,414 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:36:29,357 - INFO - Historial de mensajes:
+2024-11-19 21:36:29,357 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:36:29,357 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:36:29,358 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:29] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:37:32,990 - INFO - Historial de mensajes:
+2024-11-19 21:37:32,990 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:37:32,991 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:37:32,991 - INFO - Mensaje 3 - Role: user, Content: busco una crema para las manos
+2024-11-19 21:37:32,991 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, puedo ayudarte a encontrar una crema para las manos. ¿Podrías decirme qué tipo de crema buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:37:32,991 - INFO - 127.0.0.1 - - [19/Nov/2024 21:37:32] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:37:49,781 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:37:49,783 - INFO - 127.0.0.1 - - [19/Nov/2024 21:37:49] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-19 21:40:44,220 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:40:44,221 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:40:48,697 - INFO - 127.0.0.1 - - [19/Nov/2024 21:40:48] "GET / HTTP/1.1" 200 -
+2024-11-19 21:40:48,716 - INFO - 127.0.0.1 - - [19/Nov/2024 21:40:48] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:40:48,719 - INFO - 127.0.0.1 - - [19/Nov/2024 21:40:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:41:01,577 - INFO - Historial de mensajes:
+2024-11-19 21:41:01,579 - INFO - Mensaje 1 - Role: user, Content: crema para las manos
+2024-11-19 21:41:01,579 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de crema para las manos buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:41:01,580 - INFO - 127.0.0.1 - - [19/Nov/2024 21:41:01] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:41:11,817 - INFO - Historial de mensajes:
+2024-11-19 21:41:11,818 - INFO - Mensaje 1 - Role: user, Content: crema para las manos
+2024-11-19 21:41:11,818 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de crema para las manos buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:41:11,818 - INFO - Mensaje 3 - Role: user, Content: rejuvenecimiento de la piel
+2024-11-19 21:41:11,818 - INFO - Mensaje 4 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia.  ¿Puedes decirme qué tipo de producto buscas para el rejuvenecimiento de la piel? ¿Buscas una crema, un serum, un tratamiento específico?  ¿Para qué tipo de piel? 
+
+2024-11-19 21:41:11,819 - INFO - 127.0.0.1 - - [19/Nov/2024 21:41:11] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:41:28,202 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:41:28,207 - INFO - 127.0.0.1 - - [19/Nov/2024 21:41:28] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-19 21:43:05,712 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:43:05,713 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:43:07,372 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:07] "GET / HTTP/1.1" 200 -
+2024-11-19 21:43:07,395 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:43:07,397 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:07] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:43:12,959 - INFO - Historial de mensajes:
+2024-11-19 21:43:12,960 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:43:12,960 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:43:12,961 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:12] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:43:22,210 - INFO - Historial de mensajes:
+2024-11-19 21:43:22,210 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:43:22,211 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:43:22,211 - INFO - Mensaje 3 - Role: user, Content: busco una crema para las manos
+2024-11-19 21:43:22,211 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, puedo ayudarte a encontrar una crema para las manos. ¿Podrías decirme qué tipo de crema buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:43:22,212 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:22] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:43:28,596 - INFO - Historial de mensajes:
+2024-11-19 21:43:28,596 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:43:28,596 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:43:28,598 - INFO - Mensaje 3 - Role: user, Content: busco una crema para las manos
+2024-11-19 21:43:28,598 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, puedo ayudarte a encontrar una crema para las manos. ¿Podrías decirme qué tipo de crema buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:43:28,598 - INFO - Mensaje 5 - Role: user, Content: para piel seca
+2024-11-19 21:43:28,598 - INFO - Mensaje 6 - Role: assistant, Content: Entiendo. Para poder ayudarte a encontrar la crema para manos ideal, necesito saber para qué tipo de piel la buscas. ¿Podrías decirme si es para piel seca, sensible, mixta o grasa? 
+
+2024-11-19 21:43:28,599 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:28] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:43:35,077 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:43:35,081 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:35] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-19 21:46:46,115 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:46:46,115 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:46:47,830 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:47] "GET / HTTP/1.1" 200 -
+2024-11-19 21:46:47,888 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:47] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:46:47,894 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:46:54,511 - INFO - Historial de mensajes:
+2024-11-19 21:46:54,512 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:46:54,512 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:46:54,514 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:54] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:47:05,819 - INFO - Historial de mensajes:
+2024-11-19 21:47:05,820 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:47:05,820 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:47:05,821 - INFO - Mensaje 3 - Role: user, Content: crema para las manos piel seca
+2024-11-19 21:47:05,821 - INFO - Mensaje 4 - Role: assistant, Content: Claro, puedo ayudarte a encontrar una crema para manos para piel seca. ¿Podrías decirme qué tipo de crema buscas? ¿Contiene algún ingrediente específico? ¿O prefieres una marca en particular? 
+
+2024-11-19 21:47:05,822 - INFO - 127.0.0.1 - - [19/Nov/2024 21:47:05] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:47:14,919 - INFO - Historial de mensajes:
+2024-11-19 21:47:14,920 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:47:14,920 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:47:14,920 - INFO - Mensaje 3 - Role: user, Content: crema para las manos piel seca
+2024-11-19 21:47:14,920 - INFO - Mensaje 4 - Role: assistant, Content: Claro, puedo ayudarte a encontrar una crema para manos para piel seca. ¿Podrías decirme qué tipo de crema buscas? ¿Contiene algún ingrediente específico? ¿O prefieres una marca en particular? 
+
+2024-11-19 21:47:14,920 - INFO - Mensaje 5 - Role: user, Content: mejor con productos naturales
+2024-11-19 21:47:14,920 - INFO - Mensaje 6 - Role: assistant, Content: Entiendo que buscas una crema para manos con productos naturales. Para poder ayudarte mejor, ¿podrías decirme para qué tipo de piel la necesitas? ¿Para piel seca, sensible, o para un uso específico como manos agrietadas? 
+
+2024-11-19 21:47:14,921 - INFO - 127.0.0.1 - - [19/Nov/2024 21:47:14] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:47:20,680 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:47:20,683 - INFO - 127.0.0.1 - - [19/Nov/2024 21:47:20] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-20 00:31:44,483 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 00:31:44,484 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 00:31:46,024 - INFO - 127.0.0.1 - - [20/Nov/2024 00:31:46] "GET / HTTP/1.1" 200 -
+2024-11-20 00:31:46,117 - INFO - 127.0.0.1 - - [20/Nov/2024 00:31:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:31:46,118 - INFO - 127.0.0.1 - - [20/Nov/2024 00:31:46] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:32:19,236 - ERROR - Error en /chat: Object of type Part is not JSON serializable
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 45, in chat
+    return jsonify({"response": response["message"] if isinstance(response, dict) else response})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Part is not JSON serializable
+2024-11-20 00:32:19,243 - INFO - 127.0.0.1 - - [20/Nov/2024 00:32:19] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-20 00:43:21,369 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 00:43:21,369 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 00:43:23,603 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:23] "GET / HTTP/1.1" 200 -
+2024-11-20 00:43:24,182 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:24] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:43:24,183 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:43:33,438 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:33] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:43:49,230 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:49] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:43:58,621 - INFO - Query refinada generada: crema para las manos, piel reseca
+2024-11-20 00:44:01,297 - INFO - 127.0.0.1 - - [20/Nov/2024 00:44:01] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:46:53,387 - INFO - 127.0.0.1 - - [20/Nov/2024 00:46:53] "GET / HTTP/1.1" 200 -
+2024-11-20 00:46:53,406 - INFO - 127.0.0.1 - - [20/Nov/2024 00:46:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:46:53,407 - INFO - 127.0.0.1 - - [20/Nov/2024 00:46:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:51:27,032 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 00:51:27,033 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 00:51:28,916 - INFO - 127.0.0.1 - - [20/Nov/2024 00:51:28] "GET / HTTP/1.1" 200 -
+2024-11-20 00:51:29,129 - INFO - 127.0.0.1 - - [20/Nov/2024 00:51:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:51:29,132 - INFO - 127.0.0.1 - - [20/Nov/2024 00:51:29] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:56:06,621 - INFO - 127.0.0.1 - - [20/Nov/2024 00:56:06] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:56:21,677 - INFO - 127.0.0.1 - - [20/Nov/2024 00:56:21] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:56:30,432 - INFO - Query refinada generada: champú, caspa, seca
+2024-11-20 00:56:32,870 - INFO - 127.0.0.1 - - [20/Nov/2024 00:56:32] "POST /chat HTTP/1.1" 200 -

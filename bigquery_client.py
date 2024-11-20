@@ -35,7 +35,7 @@ LOCATION = "us-central1"
 # Inicializa el cliente de Discovery Engine
 discovery_client = discoveryengine.RankServiceClient() 
 
-def get_products(prompt):
+def get_products(refined_query):
     client = bigquery.Client(project=project_id)
     query = """
     WITH QueryEmbedding AS (
@@ -70,11 +70,11 @@ def get_products(prompt):
     ORDER BY
       distance_to_query
     LIMIT 10;
-    """.format(prompt)
+    """.format(refined_query)
     # Configura el parámetro para el prompt
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
-            bigquery.ScalarQueryParameter("prompt", "STRING", prompt)
+            bigquery.ScalarQueryParameter("prompt", "STRING", refined_query)
         ]
     )
 
@@ -108,7 +108,7 @@ def get_products(prompt):
         })
     return products
 
-def rerank_products(prompt, products):
+def rerank_products(refined_query, products):
     ranking_config = discovery_client.ranking_config_path(
         project=PROJECT_ID,
         location=LOCATION,
@@ -128,7 +128,7 @@ def rerank_products(prompt, products):
         ranking_config=ranking_config,
         model="semantic-ranker-512@latest",
         top_n=10, # cantidad de productos a rankear
-        query=prompt,
+        query=refined_query,
         records=records,
     )
     
@@ -189,11 +189,49 @@ generation_config=GenerationConfig(temperature=0),
 tools=tools)
 
 chat = multimodal_model.start_chat(response_validation=False)
+# Lista para almacenar el historial de mensajes
+message_history = []
+# Construir el historial de la conversación
+#historial_conversacion = "\n".join([f"{message['role']}: {message['content']}" for message in message_history])
 
-#INTENTAMOS DEVOLVER LA LISTA DE PRODUCTOS RANKED
-def generate_response(prompt):  # Eliminamos el parámetro products
-    #chat = multimodal_model.start_chat()
 
+def refine_query_with_keywords(message_history):
+
+    try:
+        # Crear un prompt para el modelo que refine la consulta
+        refinement_prompt = """
+        Eres un asistente experto en extracción de palabras clave. A continuación, tienes el historial de una conversación:
+
+        Historial de conversación:
+        {}
+
+        Extrae las palabras clave más importantes de la consulta del usuario en base al historial y devuélvelas en un formato de texto claro.
+        Formato esperado: palabras clave separadas por comas.
+        """.format(
+            "\n".join([f"{message['role'].capitalize()}: {message['content']}" for message in message_history])
+        )
+
+        # Enviar el prompt al modelo para generar el refinamiento
+        refinement_response = chat.send_message(refinement_prompt)
+
+        # Obtener la respuesta generada
+        refined_query = refinement_response.text.strip()
+
+        logger.info(f"Query refinada generada: {refined_query}")
+        return refined_query
+
+    except Exception as e:
+        logger.error(f"Error en refine_query_with_keywords: {str(e)}")
+        # En caso de error, devolvemos una consulta vacía o un mensaje genérico
+        return "consulta vacía"
+    
+
+#INTENTAMOS ACTUALIZAR EL HISTORIAL DE MENSAJES
+def generate_response(prompt):
+    # Agregar el mensaje del usuario al historial
+    message_history.append({"role": "user", "content": prompt})
+
+    # Prompt principal
     instruction_prompt = f"""
     # Instrucción
     Eres Cofinder, un asistente farmacéutico experto.\
@@ -210,10 +248,10 @@ def generate_response(prompt):  # Eliminamos el parámetro products
     
     ## Criterios
     - Si la entrada del profesional de farmacia es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\
-        Ejemplos de saludos: «hola», “hola”, “¿Qué tal?”.\
+        Ejemplos de saludos: «hola», “hola”, “¿Qué tal?».\
     - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.\
     - Si la entrada solicita búsquedas no relacionadas con productos de farmacia, aclare que ese no es su propósito como asistente de búsqueda de productos de farmacia.\
-        Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?”.\
+        Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?».\
     - Cuando la entrada sea relevante para activar la búsqueda de productos de farmacia, utiliza "tools" para recibir una lista de productos de farmacia clasificados que ayuden al usuario con su tarea. Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.
     - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker.
 
@@ -223,21 +261,29 @@ def generate_response(prompt):  # Eliminamos el parámetro products
     """
 
     try:
+        # Enviar el mensaje al modelo
         response = chat.send_message(instruction_prompt)
-        response.candidates[0].content.parts[0]
-        
+        response_text = response.candidates[0].content.parts[0]
+
+        # Agregar la respuesta del modelo al historial
+        message_history.append({"role": "assistant", "content": response_text})
+
         # Verificar si hay una llamada a función
         for candidate in response.candidates:
             for part in candidate.content.parts:
                 if hasattr(part, 'function_call') and part.function_call:
-                    #Capturar prompt resultante
-                    logger.info(f"Consulta enviada al RAG: {prompt}")  # Agregar logging
+                    # Refinar la query utilizando el historial actualizado
+                    refined_query = refine_query_with_keywords(message_history)
+
                     # Ejecutar búsqueda de productos
-                    products = get_products(prompt)
+                    products = get_products(refined_query)
                     if not products:
-                        return "Lo siento, no encontré productos que coincidan con tu búsqueda."
+                        return {
+                            "type": "error",
+                            "message": "Lo siento, no encontré productos que coincidan con tu búsqueda."
+                        }
                     
-                    ranked_products = rerank_products(prompt, products)
+                    ranked_products = rerank_products(refined_query, products)
                     
                     # Devolver directamente la lista de productos
                     return {
@@ -245,12 +291,16 @@ def generate_response(prompt):  # Eliminamos el parámetro products
                         "message": "He encontrado los siguientes productos:",
                         "products": ranked_products["products"]
                     }
-                
+
         # Si no hay llamada a función, devolver la respuesta conversacional
         return {
             "type": "conversation",
-            "message": response.text
+            "message": response_text
         }
                     
     except Exception as e:
-        return f"Lo siento, ocurrió un error: {str(e)}"
+        logger.error(f"Error en generate_response: {str(e)}")
+        return {
+            "type": "error",
+            "message": f"Lo siento, ocurrió un error: {str(e)}"
+        }
