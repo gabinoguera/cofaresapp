@@ -1,11 +1,1 @@
-2024-11-19 23:03:22,480 - INFO - Query refinada generada: crema hidratante, manos, resecas
-2024-11-20 10:16:59,861 - INFO - Query refinada generada: hemorroides, crema
-2024-11-20 10:20:01,167 - INFO - Query refinada generada: crema, peinar, rizos
-2024-11-20 10:23:28,926 - INFO - Query refinada generada: dolor, espalda
-2024-11-20 10:36:40,534 - INFO - Query refinada generada: crema, rejuvenecer, piel, manos
-2024-11-20 10:43:34,937 - INFO - Query refinada generada: crema, rejuvenecer, piel, manos
-2024-11-20 10:43:55,609 - INFO - Query refinada generada: protector solar, piel sensible
-2024-11-20 11:30:00,022 - INFO - Query refinada generada: Por favor, proporciona el historial de la conversación para que pueda extraer las palabras clave más importantes.
-2024-11-20 11:31:30,145 - ERROR - Error en generate_response: list index out of range
-2024-11-20 11:52:11,175 - INFO - Query refinada generada: Por favor, proporciona el historial de la conversación para que pueda extraer las palabras clave más importantes.
-2024-11-20 12:11:57,026 - ERROR - Error en generate_response: list index out of range
+2024-11-20 17:54:43,401 - INFO - Query refinada generada: Protector solar, piel sensible, niños, gel de baño, piel atópica.

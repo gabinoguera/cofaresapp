@@ -247,3 +247,84 @@ Job ID: 99ab73c8-5d6f-491c-a02d-df0a4b7a9822
 2024-11-20 13:27:10,177 - INFO - 127.0.0.1 - - [20/Nov/2024 13:27:10] "POST /chat HTTP/1.1" 200 -
 2024-11-20 13:27:39,715 - INFO - Query refinada generada: Protector solar, piel sensible
 2024-11-20 13:27:45,010 - INFO - 127.0.0.1 - - [20/Nov/2024 13:27:45] "POST /chat HTTP/1.1" 200 -
+2024-11-20 16:34:12,946 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 16:34:12,946 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 16:34:14,917 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:14] "GET / HTTP/1.1" 200 -
+2024-11-20 16:34:14,957 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 16:34:14,957 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:14] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 16:34:22,825 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:22] "POST /chat HTTP/1.1" 200 -
+2024-11-20 16:34:53,161 - INFO - Query refinada generada: Enjuague bucal, encías sensibles
+2024-11-20 16:35:00,478 - INFO - 127.0.0.1 - - [20/Nov/2024 16:35:00] "POST /chat HTTP/1.1" 200 -
+2024-11-20 17:35:34,777 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 17:35:34,778 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 17:35:38,457 - INFO - 127.0.0.1 - - [20/Nov/2024 17:35:38] "GET / HTTP/1.1" 200 -
+2024-11-20 17:35:38,510 - INFO - 127.0.0.1 - - [20/Nov/2024 17:35:38] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 17:35:38,510 - INFO - 127.0.0.1 - - [20/Nov/2024 17:35:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 17:37:18,072 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:18] "GET / HTTP/1.1" 200 -
+2024-11-20 17:37:18,099 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:18] "GET /static/styles.css HTTP/1.1" 200 -
+2024-11-20 17:37:18,099 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 17:37:24,795 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 17:37:53,723 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:53] "GET / HTTP/1.1" 200 -
+2024-11-20 17:37:53,750 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 17:37:53,750 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:53] "GET /static/styles.css HTTP/1.1" 200 -
+2024-11-20 17:39:44,679 - INFO - 127.0.0.1 - - [20/Nov/2024 17:39:44] "POST /chat HTTP/1.1" 200 -
+2024-11-20 17:39:54,113 - INFO - Query refinada generada: jarabe, tos seca
+2024-11-20 17:40:01,981 - INFO - 127.0.0.1 - - [20/Nov/2024 17:40:01] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:24:46,506 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 18:24:46,506 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 18:24:48,137 - INFO - 127.0.0.1 - - [20/Nov/2024 18:24:48] "GET / HTTP/1.1" 200 -
+2024-11-20 18:24:48,172 - INFO - 127.0.0.1 - - [20/Nov/2024 18:24:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:24:48,173 - INFO - 127.0.0.1 - - [20/Nov/2024 18:24:48] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:25:29,286 - INFO - 127.0.0.1 - - [20/Nov/2024 18:25:29] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:25:41,867 - INFO - 127.0.0.1 - - [20/Nov/2024 18:25:41] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:25:54,684 - INFO - Query refinada generada: tos seca
+2024-11-20 18:26:02,326 - INFO - 127.0.0.1 - - [20/Nov/2024 18:26:02] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:27:39,998 - INFO - 127.0.0.1 - - [20/Nov/2024 18:27:39] "GET / HTTP/1.1" 200 -
+2024-11-20 18:27:40,028 - INFO - 127.0.0.1 - - [20/Nov/2024 18:27:40] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:27:40,029 - INFO - 127.0.0.1 - - [20/Nov/2024 18:27:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:28:23,363 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:28:29,121 - INFO - 127.0.0.1 - - [20/Nov/2024 18:28:29] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:29:16,931 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:16] "GET / HTTP/1.1" 200 -
+2024-11-20 18:29:16,968 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:16] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:29:16,969 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:29:25,213 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:29:29,915 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:29] "GET / HTTP/1.1" 200 -
+2024-11-20 18:29:29,937 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:29] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:29:29,939 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:29:31,673 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:31] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:29:38,321 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:29:40,992 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:40] "GET / HTTP/1.1" 200 -
+2024-11-20 18:29:41,008 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:29:41,008 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:41] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:29:43,564 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:43] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:29:50,381 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:29:56,831 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:56] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:31:09,836 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:09] "GET / HTTP/1.1" 200 -
+2024-11-20 18:31:09,867 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:09] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:31:09,867 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:31:32,145 - INFO - Query refinada generada: champú, anticaída, bote, rojo
+2024-11-20 18:31:38,912 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:38] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:33:14,066 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:14] "GET / HTTP/1.1" 200 -
+2024-11-20 18:33:14,100 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:33:14,101 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:14] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:33:28,654 - INFO - Query refinada generada: leche, polvo, sin, lactosa, bebés
+2024-11-20 18:33:35,473 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:35] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:34:58,126 - INFO - 127.0.0.1 - - [20/Nov/2024 18:34:58] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:35:18,026 - INFO - Query refinada generada: leche, sin, lactosa, arroz
+2024-11-20 18:35:24,496 - INFO - 127.0.0.1 - - [20/Nov/2024 18:35:24] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:47:52,734 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 18:47:52,734 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 18:47:55,674 - INFO - 127.0.0.1 - - [20/Nov/2024 18:47:55] "GET / HTTP/1.1" 200 -
+2024-11-20 18:47:55,701 - INFO - 127.0.0.1 - - [20/Nov/2024 18:47:55] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:47:55,701 - INFO - 127.0.0.1 - - [20/Nov/2024 18:47:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:50:51,644 - INFO - 127.0.0.1 - - [20/Nov/2024 18:50:51] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:51:16,471 - INFO - 127.0.0.1 - - [20/Nov/2024 18:51:16] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:51:48,784 - INFO - 127.0.0.1 - - [20/Nov/2024 18:51:48] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:52:36,064 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:36] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:52:58,467 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:58] "GET / HTTP/1.1" 200 -
+2024-11-20 18:52:58,497 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:52:58,497 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:58] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -

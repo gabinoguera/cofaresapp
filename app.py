@@ -50,11 +50,9 @@ def chat():
                 product_dict = {
                     "codigo_web": product.get("codigo_web"),
                     "nombre": product.get("nombre"),
-                    "descripcion": product.get("descripcion")
+                    "descripcion": product.get("descripcion"),
+                    "distance_to_query": product.get("distance_to_query", "N/A")  # Agregamos distancia
                 }
-                # Solo agregar distance_to_query si existe
-                if "distance_to_query" in product:
-                    product_dict["distance_to_query"] = product["distance_to_query"]
                 filtered_products.append(product_dict)
                 
             return jsonify({

@@ -45,13 +45,21 @@
                 if (data.products) {
                     let productList = "<ul>";
                     data.products.forEach(product => {
-                        productList += `<li><strong>${product.nombre}</strong> (Código: ${product.codigo_web}) - ${product.descripcion}</li>`;
+                        productList += `
+                            <li>
+                                <strong>${product.nombre}</strong> (Código: ${product.codigo_web}) - ${product.descripcion}
+                                <br><em>Distancia a la consulta: ${product.distance_to_query}</em>
+                            </li>`;
                     });
                     productList += "</ul>";
                     addMessageToChat("bot-message", productList);
                 } else {
                     addMessageToChat("bot-message", data.response);
                 }
+            })
+            .catch(error => {
+                addMessageToChat("bot-message", "Lo siento, ocurrió un error.");
+                console.error("Error en la solicitud:", error);
             });
         }
 
