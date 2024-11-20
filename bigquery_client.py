@@ -35,7 +35,7 @@ LOCATION = "us-central1"
 # Inicializa el cliente de Discovery Engine
 discovery_client = discoveryengine.RankServiceClient() 
 
-def get_products(refined_query):
+def get_products(prompt):
     client = bigquery.Client(project=project_id)
     query = """
     WITH QueryEmbedding AS (
@@ -43,8 +43,8 @@ def get_products(refined_query):
         ml_generate_embedding_result AS query_embedding
       FROM
         ML.GENERATE_EMBEDDING(
-          MODEL `dataton-2024-team-01-cofares.datos_cofares.text_embedding`,
-          (SELECT @prompt AS content),  -- Aquí usamos el parámetro
+          MODEL `dataton-2024-team-01-cofares.datos_cofares.text_gecko`,  -- Añadidos los backticks
+          (SELECT @prompt AS content),
           STRUCT(TRUE AS flatten_json_output, 'RETRIEVAL_QUERY' AS task_type)
         )
     )
@@ -55,26 +55,36 @@ def get_products(refined_query):
       d.codigo_web,
       d.URI_primera_imagen,
       d.codigo_nacional,
+      d.es_marca_propia AS marca,
+      d.nombre_matricula_nivel0 AS matricula0,
+      d.nombre_matricula_nivel1 AS matricula1,
+      d.txt_composicion AS composicion,
+      d.forma,
+      d.color,
+      d.descripcion_visual,
+      d.empaque,
+      d.zona_de_aplicacion,
       ML.DISTANCE(
         qe.query_embedding,
-        e.ml_generate_embedding_result,
+        d.ml_generate_embedding_result,
         'COSINE'
       ) AS distance_to_query
     FROM
-      `dataton-2024-team-01-cofares.datos_cofares.data_final_temp` AS d
-    INNER JOIN
-      `dataton-2024-team-01-cofares.datos_cofares.SalidaEmbeddings_temp` AS e
-      ON d.codigo_web = e.title
+      `dataton-2024-team-01-cofares.datos_cofares.data_and_embeddings` as d
     INNER JOIN QueryEmbedding AS qe
       ON TRUE
     ORDER BY
       distance_to_query
     LIMIT 10;
-    """.format(refined_query)
+    """
+    
+    # Imprimir la consulta SQL generada para depuración
+    #print(query)  # Esto te ayudará a verificar la consulta
+
     # Configura el parámetro para el prompt
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
-            bigquery.ScalarQueryParameter("prompt", "STRING", refined_query)
+            bigquery.ScalarQueryParameter("prompt", "STRING", prompt)
         ]
     )
 
@@ -83,7 +93,7 @@ def get_products(refined_query):
     
     products = []
     for row in results:
-
+        # Asignación de valores con lógica adicional
         descripcion = row.descripcion
         if not row.descripcion:
             descripcion = '-'
@@ -92,11 +102,11 @@ def get_products(refined_query):
         if not row.modo_implementacion:
             modo_implementacion = '-'
 
-
         # Cambia la URL si es necesario
         imagen_url = row.URI_primera_imagen 
         if imagen_url and imagen_url.startswith('gs:/'):
             imagen_url = imagen_url.replace('gs://dataton-2024-team-01-cofares-datastore/imagenes/', 'https://storage.googleapis.com/dataton-2024-team-01-cofares-datastore/imagenes/reto_cofares/')
+
         products.append({
             "codigo_web": row.codigo_web,
             "nombre": row.nombre,
@@ -104,11 +114,11 @@ def get_products(refined_query):
             "descripcion": descripcion,
             "modo_implementacion": modo_implementacion,
             "imagen_url": imagen_url,
-            "distance_to_query": row.distance_to_query
+            "distance_to_query": row.distance_to_query,
         })
     return products
 
-def rerank_products(refined_query, products):
+def rerank_products(prompt, products):
     ranking_config = discovery_client.ranking_config_path(
         project=PROJECT_ID,
         location=LOCATION,
@@ -128,7 +138,7 @@ def rerank_products(refined_query, products):
         ranking_config=ranking_config,
         model="semantic-ranker-512@latest",
         top_n=10, # cantidad de productos a rankear
-        query=refined_query,
+        query=prompt,
         records=records,
     )
     
@@ -215,10 +225,10 @@ def refine_query_with_keywords(message_history):
         refinement_response = chat.send_message(refinement_prompt)
 
         # Obtener la respuesta generada
-        refined_query = refinement_response.text.strip()
+        prompt = refinement_response.text.strip()
 
-        logger.info(f"Query refinada generada: {refined_query}")
-        return refined_query
+        logger.info(f"Query refinada generada: {prompt}")
+        return prompt
 
     except Exception as e:
         logger.error(f"Error en refine_query_with_keywords: {str(e)}")
@@ -227,9 +237,9 @@ def refine_query_with_keywords(message_history):
     
 
 #INTENTAMOS ACTUALIZAR EL HISTORIAL DE MENSAJES
-def generate_response(prompt):
+def generate_response(prompt_user):
     # Agregar el mensaje del usuario al historial
-    message_history.append({"role": "user", "content": prompt})
+    message_history.append({"role": "user", "content": prompt_user})
 
     # Prompt principal
     instruction_prompt = f"""
@@ -257,7 +267,7 @@ def generate_response(prompt):
 
     ### Prompt
 
-        Aquí está la consulta del experto farmacéutico: {prompt}
+        Aquí está la consulta del experto farmacéutico: {prompt_user}
     """
 
     try:
@@ -273,17 +283,17 @@ def generate_response(prompt):
             for part in candidate.content.parts:
                 if hasattr(part, 'function_call') and part.function_call:
                     # Refinar la query utilizando el historial actualizado
-                    refined_query = refine_query_with_keywords(message_history)
+                    prompt = refine_query_with_keywords(message_history)
 
                     # Ejecutar búsqueda de productos
-                    products = get_products(refined_query)
+                    products = get_products(prompt)
                     if not products:
                         return {
                             "type": "error",
                             "message": "Lo siento, no encontré productos que coincidan con tu búsqueda."
                         }
                     
-                    ranked_products = rerank_products(refined_query, products)
+                    ranked_products = rerank_products(prompt, products)
                     
                     # Devolver directamente la lista de productos
                     return {

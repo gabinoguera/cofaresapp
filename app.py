@@ -31,13 +31,13 @@ def chat():
     """Procesa las consultas del usuario y devuelve la respuesta del backend."""
     try:
         data = request.get_json()
-        prompt = data.get("prompt", "")
+        prompt_user = data.get("prompt", "")
 
-        if not prompt:
+        if not prompt_user:
             return jsonify({"error": "No se proporcionó ningún prompt"}), 400
 
         # Llama a la función de respuesta en el backend
-        response = generate_response(prompt)
+        response = generate_response(prompt_user)
         
         # Serializar la respuesta
         serialized_response = serialize_response(response)
