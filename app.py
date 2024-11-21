@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from bigquery_client import generate_response
 import logging
+import os
 
 # Configuración de logging
 logging.basicConfig(level=logging.INFO)
@@ -72,4 +73,4 @@ def chat():
         return jsonify({"error": f"Error interno del servidor: {str(e)}"}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8080)), debug=True)
