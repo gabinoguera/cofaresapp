@@ -1,4 +1,11 @@
 /envcofares*
 /__pycache__*
-/test
-.env
+/testing
+.venv
+app.log
+notas.txt
+evaluation.py
+*.pyc
+*.log
+.gitignore
+requirements_old.txt
