@@ -1,4 +1,3 @@
-import os
 import logging
 from google.cloud import bigquery
 from dotenv import load_dotenv
@@ -22,11 +21,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-
-load_dotenv()  # Carga las variables desde .env al entorno
 client = bigquery.Client(project='dataton-2024-team-01-cofares')
-# Ahora puedes acceder a las variables de entorno
-project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
 
 # Configuración del cliente de Vertex AI
 PROJECT_ID = "dataton-2024-team-01-cofares"
@@ -36,7 +31,6 @@ LOCATION = "us-central1"
 discovery_client = discoveryengine.RankServiceClient() 
 
 def get_products(prompt):
-    client = bigquery.Client(project=project_id)
     query = """
     WITH QueryEmbedding AS (
       SELECT

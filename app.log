@@ -362,3 +362,46 @@ Job ID: 99ab73c8-5d6f-491c-a02d-df0a4b7a9822
 2024-11-21 10:39:25,043 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
 2024-11-21 10:39:25,044 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
 2024-11-21 10:39:25,105 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-21 11:46:21,917 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 11:46:21,917 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 11:46:26,378 - INFO - 127.0.0.1 - - [21/Nov/2024 11:46:26] "GET / HTTP/1.1" 200 -
+2024-11-21 11:46:26,409 - INFO - 127.0.0.1 - - [21/Nov/2024 11:46:26] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 11:46:26,409 - INFO - 127.0.0.1 - - [21/Nov/2024 11:46:26] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 11:46:32,870 - ERROR - AuthMetadataPluginCallback "<google.auth.transport.grpc.AuthMetadataPlugin object at 0x12d4dd890>" raised exception!
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/grpc/_plugin_wrapping.py", line 105, in __call__
+    self._metadata_plugin(
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/auth/transport/grpc.py", line 95, in __call__
+    callback(self._get_authorization_headers(context), None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/auth/transport/grpc.py", line 81, in _get_authorization_headers
+    self._credentials.before_request(
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/auth/credentials.py", line 239, in before_request
+    self._blocking_refresh(request)
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/auth/credentials.py", line 202, in _blocking_refresh
+    self.refresh(request)
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/oauth2/credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2024-11-21 11:46:32,878 - ERROR - Error en generate_response: 503 Getting metadata from plugin failed with error: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+2024-11-21 11:46:32,879 - INFO - 127.0.0.1 - - [21/Nov/2024 11:46:32] "POST /chat HTTP/1.1" 200 -
+2024-11-21 11:47:33,206 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 11:47:33,206 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 11:47:34,991 - INFO - 127.0.0.1 - - [21/Nov/2024 11:47:34] "GET / HTTP/1.1" 200 -
+2024-11-21 11:47:35,018 - INFO - 127.0.0.1 - - [21/Nov/2024 11:47:35] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 11:47:35,019 - INFO - 127.0.0.1 - - [21/Nov/2024 11:47:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 11:47:42,237 - INFO - 127.0.0.1 - - [21/Nov/2024 11:47:42] "POST /chat HTTP/1.1" 200 -
+2024-11-21 11:50:49,568 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 11:50:49,568 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 11:50:50,760 - INFO - 127.0.0.1 - - [21/Nov/2024 11:50:50] "GET / HTTP/1.1" 200 -
+2024-11-21 11:50:51,336 - INFO - 127.0.0.1 - - [21/Nov/2024 11:50:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 11:50:51,346 - INFO - 127.0.0.1 - - [21/Nov/2024 11:50:51] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 11:50:58,238 - INFO - 127.0.0.1 - - [21/Nov/2024 11:50:58] "POST /chat HTTP/1.1" 200 -
+2024-11-21 11:51:14,369 - INFO - Query refinada generada: shampoo, uso diario, cabello rizado
+2024-11-21 11:51:21,307 - INFO - 127.0.0.1 - - [21/Nov/2024 11:51:21] "POST /chat HTTP/1.1" 200 -
