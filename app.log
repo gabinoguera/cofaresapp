@@ -405,3 +405,22 @@ google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcl
 2024-11-21 11:50:58,238 - INFO - 127.0.0.1 - - [21/Nov/2024 11:50:58] "POST /chat HTTP/1.1" 200 -
 2024-11-21 11:51:14,369 - INFO - Query refinada generada: shampoo, uso diario, cabello rizado
 2024-11-21 11:51:21,307 - INFO - 127.0.0.1 - - [21/Nov/2024 11:51:21] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:39:26,843 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:39:26,843 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:39:28,387 - INFO - 127.0.0.1 - - [21/Nov/2024 19:39:28] "GET / HTTP/1.1" 200 -
+2024-11-21 19:39:28,422 - INFO - 127.0.0.1 - - [21/Nov/2024 19:39:28] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:39:28,423 - INFO - 127.0.0.1 - - [21/Nov/2024 19:39:28] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:39:58,086 - INFO - 127.0.0.1 - - [21/Nov/2024 19:39:58] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:40:19,723 - INFO - Query refinada generada: dolor de cabeza, adulto, sin contraindicaciones
+2024-11-21 19:40:26,348 - INFO - 127.0.0.1 - - [21/Nov/2024 19:40:26] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:43:58,319 - INFO - 127.0.0.1 - - [21/Nov/2024 19:43:58] "GET / HTTP/1.1" 200 -
+2024-11-21 19:43:58,361 - INFO - 127.0.0.1 - - [21/Nov/2024 19:43:58] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:43:58,361 - INFO - 127.0.0.1 - - [21/Nov/2024 19:43:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:44:30,075 - INFO - 127.0.0.1 - - [21/Nov/2024 19:44:30] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:44:44,501 - INFO - Query refinada generada: dolor de cabeza, adulto, sin contraindicaciones
+2024-11-21 19:44:50,556 - INFO - 127.0.0.1 - - [21/Nov/2024 19:44:50] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:45:18,303 - INFO - 127.0.0.1 - - [21/Nov/2024 19:45:18] "GET / HTTP/1.1" 200 -
+2024-11-21 19:45:18,330 - INFO - 127.0.0.1 - - [21/Nov/2024 19:45:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:45:18,331 - INFO - 127.0.0.1 - - [21/Nov/2024 19:45:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:45:48,413 - INFO - 127.0.0.1 - - [21/Nov/2024 19:45:48] "POST /chat HTTP/1.1" 200 -
