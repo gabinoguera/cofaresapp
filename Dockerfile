@@ -14,11 +14,12 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Expone el puerto en el que se ejecuta la aplicación
-EXPOSE 5000
+EXPOSE 8080
 
 # Establece las variables de entorno necesarias
+ENV PORT=8080
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 # Comando para ejecutar la aplicación
-CMD ["flask", "run"]
+CMD ["python", "app.py"]
