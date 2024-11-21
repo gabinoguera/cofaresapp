@@ -362,3 +362,12 @@ Job ID: 99ab73c8-5d6f-491c-a02d-df0a4b7a9822
 2024-11-21 10:39:25,043 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
 2024-11-21 10:39:25,044 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
 2024-11-21 10:39:25,105 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-21 14:55:51,150 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 14:55:51,150 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 14:55:53,496 - INFO - 127.0.0.1 - - [21/Nov/2024 14:55:53] "GET / HTTP/1.1" 200 -
+2024-11-21 14:55:53,537 - INFO - 127.0.0.1 - - [21/Nov/2024 14:55:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 14:55:53,542 - INFO - 127.0.0.1 - - [21/Nov/2024 14:55:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 14:56:00,467 - INFO - 127.0.0.1 - - [21/Nov/2024 14:56:00] "POST /chat HTTP/1.1" 200 -
+2024-11-21 14:56:12,906 - INFO - Query refinada generada: champú, cabello rizado, uso diario
+2024-11-21 14:56:22,593 - INFO - 127.0.0.1 - - [21/Nov/2024 14:56:22] "POST /chat HTTP/1.1" 200 -

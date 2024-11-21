@@ -30,7 +30,7 @@ project_id = os.getenv("GOOGLE_CLOUD_PROJECT")
 
 # Configuración del cliente de Vertex AI
 PROJECT_ID = "dataton-2024-team-01-cofares"
-LOCATION = "us-central1"
+LOCATION = "europe-west4"
 
 # Inicializa el cliente de Discovery Engine
 discovery_client = discoveryengine.RankServiceClient() 
