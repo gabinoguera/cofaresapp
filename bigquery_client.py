@@ -55,7 +55,6 @@ def get_products(prompt):
       d.codigo_web,
       d.URI_primera_imagen,
       d.codigo_nacional,
-      d.es_marca_propia AS marca,
       d.nombre_matricula_nivel0 AS matricula0,
       d.nombre_matricula_nivel1 AS matricula1,
       d.txt_composicion AS composicion,
@@ -94,13 +93,8 @@ def get_products(prompt):
     products = []
     for row in results:
         # Asignación de valores con lógica adicional
-        descripcion = row.descripcion
-        if not row.descripcion:
-            descripcion = '-'
-        
-        modo_implementacion = row.modo_implementacion
-        if not row.modo_implementacion:
-            modo_implementacion = '-'
+        descripcion = row.descripcion if row.descripcion else '-'
+        modo_implementacion = row.modo_implementacion if row.modo_implementacion else '-'
 
         # Cambia la URL si es necesario
         imagen_url = row.URI_primera_imagen 
@@ -115,6 +109,14 @@ def get_products(prompt):
             "modo_implementacion": modo_implementacion,
             "imagen_url": imagen_url,
             "distance_to_query": row.distance_to_query,
+            "matricula0": row.matricula0,
+            "matricula1": row.matricula1,
+            "composicion": row.composicion,
+            "forma": row.forma,
+            "color": row.color,
+            "descripcion_visual": row.descripcion_visual,
+            "empaque": row.empaque,
+            "zona_de_aplicacion": row.zona_de_aplicacion
         })
     return products
 
@@ -129,7 +131,20 @@ def rerank_products(prompt, products):
         discoveryengine.RankingRecord(
             id=str(index),
             title=product["nombre"],
-            content=product["descripcion"] + " " + product["modo_implementacion"]
+            content=" ".join(filter(None, [  # Filtrar valores None y unir con espacios
+                str(product["descripcion"] or ""),
+                str(product["modo_implementacion"] or ""),
+                str(product.get("descripcion_visual", "") or ""),
+                str(product.get("matricula0", "") or ""),
+                str(product.get("matricula1", "") or ""),
+                str(product.get("composicion", "") or ""),
+                str(product.get("forma", "") or ""),
+                str(product.get("color", "") or ""),
+                str(product.get("empaque", "") or ""),
+                str(product.get("zona_de_aplicacion", "") or ""),
+                str(product.get("codigo_web", "") or ""),
+                str(product.get("codigo_nacional", "") or "")
+            ]))
         )
         for index, product in enumerate(products)
     ]
@@ -153,7 +168,15 @@ def rerank_products(prompt, products):
             "descripcion": products[int(record.id)]["descripcion"],
             "modo_implementacion": products[int(record.id)]["modo_implementacion"],
             "imagen_url": products[int(record.id)]["imagen_url"],
-            "distance_to_query": products[int(record.id)]["distance_to_query"]
+            "distance_to_query": products[int(record.id)]["distance_to_query"],
+            "descripcion_visual": products[int(record.id)].get("descripcion_visual", ""),
+            "matricula0": products[int(record.id)].get("matricula0", ""),
+            "matricula1": products[int(record.id)].get("matricula1", ""),
+            "composicion": products[int(record.id)].get("composicion", ""),
+            "forma": products[int(record.id)].get("forma", ""),
+            "color": products[int(record.id)].get("color", ""),
+            "empaque": products[int(record.id)].get("empaque", ""),
+            "zona_de_aplicacion": products[int(record.id)].get("zona_de_aplicacion", "")
         }
         for record in response.records[:20] # cantidad de productos a mostrar
     ]
@@ -178,7 +201,15 @@ product_schema = FunctionDeclaration(
                         "descripcion": {"type": "string", "description": "Product description"},
                         "modo_implementacion": {"type": "string", "description": "Mode of implementation"},
                         "imagen_url": {"type": "string", "description": "Image URL"},
-                        "distance_to_query": {"type": "number", "description": "Semantic distance to query"}
+                        "distance_to_query": {"type": "number", "description": "Semantic distance to query"},
+                        "descripcion_visual": {"type": "string", "description": "Visual description of the product"},
+                        "matricula0": {"type": "string", "description": "Level 0 registration name"},
+                        "matricula1": {"type": "string", "description": "Level 1 registration name"},
+                        "composicion": {"type": "string", "description": "Composition of the product"},
+                        "forma": {"type": "string", "description": "Form of the product"},
+                        "color": {"type": "string", "description": "Color of the product"},
+                        "empaque": {"type": "string", "description": "Packaging of the product"},
+                        "zona_de_aplicacion": {"type": "string", "description": "Application area of the product"}
                     }
                 }
             }
@@ -243,31 +274,63 @@ def generate_response(prompt_user):
 
     # Prompt principal
     instruction_prompt = f"""
-    # Instrucción
-    Eres Cofinder, un asistente farmacéutico experto.\
-    Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.\
-    Te proporcionamos una lista de productos procedentes de la base de datos y previamente rankeados por relevancia.\
-    Primero debes leer atentamente la entrada del usuario,\
-    y luego desarrollar una respuesta basada en los Criterios proporcionados en la sección Producto a continuación.\
-    
-    # Producto
-    ## Definición de la herramienta
-    Tienes acceso a una lista de productos de una base de datos de productos de farmacia "{tools}"\
-    que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional de farmacia.\
-    Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.\
-    
-    ## Criterios
-    - Si la entrada del profesional de farmacia es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\
-        Ejemplos de saludos: «hola», “hola”, “¿Qué tal?».\
-    - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.\
-    - Si la entrada solicita búsquedas no relacionadas con productos de farmacia, aclare que ese no es su propósito como asistente de búsqueda de productos de farmacia.\
-        Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?».\
-    - Cuando la entrada sea relevante para activar la búsqueda de productos de farmacia, utiliza "tools" para recibir una lista de productos de farmacia clasificados que ayuden al usuario con su tarea. Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.
-    - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker.
+        # Instrucción
+        Eres Cofinder, un asistente farmacéutico experto.
 
-    ### Prompt
+        Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.
+        Te proporcionamos una lista de productos de parafarmacia y veterinaria procedentes de la base de datos y previamente rankeados por relevancia.
+        Primero debes leer atentamente la entrada del usuario, y luego desarrollar una respuesta basada en los Criterios proporcionados
+        en la sección Producto a continuación.
 
-        Aquí está la consulta del experto farmacéutico: {prompt_user}
+        # Producto
+        ## Definición de la herramienta
+        Tienes acceso a una lista de productos de una base de datos de productos de farmacia y veterinaria "{tools}"
+        que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional.  
+        Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.
+
+        ## Criterios
+        - Si la entrada del profesional (farmacia o veterinaria) es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.
+            Ejemplos de saludos: «hola», “hola”, “¿Qué tal?”.
+
+        - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.
+            Por ejemplo, si el usuario pide "un producto para la tos", pregunte: "¿Para un humano o un animal? ¿Qué tipo de animal? ¿Qué edad tiene?".
+            O si el usuario pide "un producto para el dolor", pregunte: "¿Qué tipo de dolor? ¿Para qué especie? ¿Hay alguna contraindicación?".
+
+        - Si la entrada solicita búsquedas no relacionadas con productos de parafarmacia o veterinaria,
+            aclare que ese no es su propósito como asistente de búsqueda de productos de parafarmacia y veterinaria.
+            Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?”.
+
+        - Cuando la entrada sea relevante para activar la búsqueda de productos de parafarmacia o veterinaria, utiliza "tools"
+        para recibir una lista de productos de parafarmacia y veterinaria clasificados que ayuden al usuario con su tarea.
+        Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.
+
+        - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker. Tampoco inventes información.
+
+        ### Ejemplos de entradas de usuario y respuestas:
+
+        Entrada: Hola
+
+        Respuesta: ¡Hola! Soy Cofinder, su asistente de búsqueda para productos farmacéuticos y veterinarios. ¿En qué puedo ayudarle?
+
+        Entrada: Busco un antiinflamatorio para perros.
+
+        Respuesta: Por favor, especifique el tamaño y la raza del perro para poder ofrecerle una mejor recomendación. Una vez que me proporcione esta información, accederé a la base de datos.
+
+        Entrada: Necesito un jarabe para la tos para niños, que no sea en cápsulas.
+
+        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de "tools" filtrada según la consulta, priorizando jarabes para la tos infantil, no en cápsulas].
+
+        Entrada: Quiero pedir una pizza.
+
+        Respuesta: Lo siento, pero no estoy programado para gestionar pedidos de comida. Soy un asistente de búsqueda para productos farmacéuticos y veterinarios. ¿Puedo ayudarle con alguna otra consulta relacionada con estos productos?
+
+        Entrada: Leche sin lactosa para bebé.
+
+        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de "tools" filtrada según la consulta, priorizando productos sin lactosa para bebés].
+
+        ### Prompt
+
+        Aquí está la consulta del experto farmacéutico: {prompt_user} 
     """
 
     try:

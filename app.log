@@ -371,3 +371,102 @@ Job ID: 99ab73c8-5d6f-491c-a02d-df0a4b7a9822
 2024-11-21 14:56:00,467 - INFO - 127.0.0.1 - - [21/Nov/2024 14:56:00] "POST /chat HTTP/1.1" 200 -
 2024-11-21 14:56:12,906 - INFO - Query refinada generada: champú, cabello rizado, uso diario
 2024-11-21 14:56:22,593 - INFO - 127.0.0.1 - - [21/Nov/2024 14:56:22] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:53:22,352 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 15:53:22,353 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 15:53:24,345 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:24] "GET / HTTP/1.1" 200 -
+2024-11-21 15:53:24,388 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 15:53:24,389 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:24] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 15:53:28,645 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:28] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:53:48,086 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:48] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:54:03,759 - INFO - 127.0.0.1 - - [21/Nov/2024 15:54:03] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:54:15,338 - INFO - Query refinada generada: champú, bote rojo, adultos
+2024-11-21 15:54:25,582 - INFO - 127.0.0.1 - - [21/Nov/2024 15:54:25] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:47:40,168 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 18:47:40,168 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 18:47:42,285 - INFO - 127.0.0.1 - - [21/Nov/2024 18:47:42] "GET / HTTP/1.1" 200 -
+2024-11-21 18:47:42,330 - INFO - 127.0.0.1 - - [21/Nov/2024 18:47:42] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 18:47:42,331 - INFO - 127.0.0.1 - - [21/Nov/2024 18:47:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 18:48:01,582 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:01] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:48:14,258 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:14] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:48:29,822 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:29] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:48:46,720 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:46] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:49:02,795 - INFO - 127.0.0.1 - - [21/Nov/2024 18:49:02] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:49:30,896 - INFO - Query refinada generada: champú, rojo, uso diario
+2024-11-21 18:49:36,010 - ERROR - Error en generate_response: can only concatenate str (not "bool") to str
+2024-11-21 18:49:36,012 - INFO - 127.0.0.1 - - [21/Nov/2024 18:49:36] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:52:14,662 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 18:52:14,662 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 18:52:16,909 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:16] "GET / HTTP/1.1" 200 -
+2024-11-21 18:52:16,935 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 18:52:16,935 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:16] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 18:52:31,661 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:31] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:52:46,130 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:46] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:53:01,963 - INFO - Query refinada generada: champú, bote rojo, uso diario
+2024-11-21 18:53:08,190 - INFO - 127.0.0.1 - - [21/Nov/2024 18:53:08] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:57:34,508 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 18:57:34,508 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 18:57:49,697 - INFO - 127.0.0.1 - - [21/Nov/2024 18:57:49] "GET / HTTP/1.1" 200 -
+2024-11-21 18:57:49,739 - INFO - 127.0.0.1 - - [21/Nov/2024 18:57:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 18:57:49,740 - INFO - 127.0.0.1 - - [21/Nov/2024 18:57:49] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 18:58:09,808 - INFO - 127.0.0.1 - - [21/Nov/2024 18:58:09] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:58:26,982 - INFO - 127.0.0.1 - - [21/Nov/2024 18:58:26] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:58:39,373 - INFO - Query refinada generada: champú, uso diario, cabello normal, bote rojo
+2024-11-21 18:58:46,494 - INFO - 127.0.0.1 - - [21/Nov/2024 18:58:46] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:02:42,980 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:02:42,980 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:02:44,716 - INFO - 127.0.0.1 - - [21/Nov/2024 19:02:44] "GET / HTTP/1.1" 200 -
+2024-11-21 19:02:44,752 - INFO - 127.0.0.1 - - [21/Nov/2024 19:02:44] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:02:44,752 - INFO - 127.0.0.1 - - [21/Nov/2024 19:02:44] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:03:26,934 - INFO - 127.0.0.1 - - [21/Nov/2024 19:03:26] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:04:05,467 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:05] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:04:29,087 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:29] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:04:50,679 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:50] "GET / HTTP/1.1" 200 -
+2024-11-21 19:04:50,701 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:04:50,701 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:50] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:05:02,386 - INFO - Query refinada generada: champú, uso diario, pelo rizado, bote rojo
+2024-11-21 19:05:10,118 - ERROR - Error en generate_response: can only concatenate str (not "NoneType") to str
+2024-11-21 19:05:10,120 - INFO - 127.0.0.1 - - [21/Nov/2024 19:05:10] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:07:13,576 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:07:13,576 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:07:14,722 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:14] "GET / HTTP/1.1" 200 -
+2024-11-21 19:07:14,750 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:07:14,750 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:14] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:07:30,506 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:30] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:07:48,335 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:48] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:07:55,493 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:55] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:08:11,925 - INFO - 127.0.0.1 - - [21/Nov/2024 19:08:11] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:08:37,631 - INFO - Query refinada generada: champú, anticaída, adulto, bote, rojo
+2024-11-21 19:08:43,686 - INFO - 127.0.0.1 - - [21/Nov/2024 19:08:43] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:25:20,817 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:25:20,817 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:25:22,311 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:22] "GET / HTTP/1.1" 200 -
+2024-11-21 19:25:22,627 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:22] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:25:22,628 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:25:46,143 - INFO - Query refinada generada: leche, sin lactosa, bebes
+2024-11-21 19:25:51,839 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:51] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:26:36,015 - INFO - Query refinada generada: leche, arroz, sin lactosa, bebes
+2024-11-21 19:26:41,379 - INFO - 127.0.0.1 - - [21/Nov/2024 19:26:41] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:27:45,625 - INFO - 127.0.0.1 - - [21/Nov/2024 19:27:45] "GET / HTTP/1.1" 200 -
+2024-11-21 19:27:45,655 - INFO - 127.0.0.1 - - [21/Nov/2024 19:27:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:27:45,655 - INFO - 127.0.0.1 - - [21/Nov/2024 19:27:45] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:28:16,096 - INFO - Query refinada generada: champu, uso diario, bote rojo
+2024-11-21 19:28:21,950 - INFO - 127.0.0.1 - - [21/Nov/2024 19:28:21] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:29:56,446 - INFO - 127.0.0.1 - - [21/Nov/2024 19:29:56] "GET / HTTP/1.1" 200 -
+2024-11-21 19:29:56,469 - INFO - 127.0.0.1 - - [21/Nov/2024 19:29:56] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:29:56,470 - INFO - 127.0.0.1 - - [21/Nov/2024 19:29:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:30:35,954 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:30:35,955 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:30:37,400 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:37] "GET / HTTP/1.1" 200 -
+2024-11-21 19:30:37,428 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:37] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:30:37,430 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:30:43,259 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:43] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:31:12,226 - INFO - Query refinada generada: champú, uso diario, bote rojo
+2024-11-21 19:31:19,068 - INFO - 127.0.0.1 - - [21/Nov/2024 19:31:19] "POST /chat HTTP/1.1" 200 -
