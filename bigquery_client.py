@@ -75,7 +75,7 @@ def get_products(prompt):
       ON TRUE
     ORDER BY
       distance_to_query
-    LIMIT 10;
+    LIMIT 100;
     """
     
     # Imprimir la consulta SQL generada para depuración
@@ -137,7 +137,7 @@ def rerank_products(prompt, products):
     request = discoveryengine.RankRequest(
         ranking_config=ranking_config,
         model="semantic-ranker-512@latest",
-        top_n=10, # cantidad de productos a rankear
+        top_n=50, # cantidad de productos a rankear
         query=prompt,
         records=records,
     )
@@ -155,7 +155,7 @@ def rerank_products(prompt, products):
             "imagen_url": products[int(record.id)]["imagen_url"],
             "distance_to_query": products[int(record.id)]["distance_to_query"]
         }
-        for record in response.records[:5] # cantidad de productos a mostrar
+        for record in response.records[:20] # cantidad de productos a mostrar
     ]
     
     return {"products": ranked_products}
