@@ -7,6 +7,7 @@ from google.cloud import discoveryengine_v1 as discoveryengine
 from vertexai import generative_models as genai  # Añadir esta línea
 from vertexai.generative_models import (
     FunctionDeclaration,
+    SafetySetting,
     GenerationConfig,
     Tool,
 )
@@ -219,14 +220,37 @@ product_schema = FunctionDeclaration(
 # Define tools antes de inicializar el modelo
 tools = [Tool(function_declarations=[product_schema])]
 
+# Definir safety settings
+safety_settings = [
+    SafetySetting(
+        category=SafetySetting.HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold=SafetySetting.HarmBlockThreshold.OFF
+    ),
+    SafetySetting(
+        category=SafetySetting.HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold=SafetySetting.HarmBlockThreshold.OFF
+    ),
+    SafetySetting(
+        category=SafetySetting.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold=SafetySetting.HarmBlockThreshold.OFF
+    ),
+    SafetySetting(
+        category=SafetySetting.HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold=SafetySetting.HarmBlockThreshold.OFF
+    ),
+]
 
 vertexai.init(project=PROJECT_ID, location=LOCATION)
 
 # Model definition
 multimodal_model = genai.GenerativeModel(
-"gemini-1.5-flash",
-generation_config=GenerationConfig(temperature=0),
-tools=tools)
+    "gemini-1.5-flash-001",
+    generation_config=GenerationConfig(
+        temperature=0,
+    ),
+    tools=tools,
+    safety_settings=safety_settings  # Añadir safety settings aquí
+)
 
 chat = multimodal_model.start_chat(response_validation=False)
 # Lista para almacenar el historial de mensajes
