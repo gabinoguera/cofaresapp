@@ -57,14 +57,16 @@ def chat():
                 
             return jsonify({
                 "response": serialized_response.get("message"), 
-                "products": filtered_products
+                "products": filtered_products,
+                "response_time": serialized_response.get("response_time")  # Incluir tiempo de respuesta
             })
 
         # Envía solo el mensaje generado al frontend
         return jsonify({
             "response": serialized_response.get("message") 
             if isinstance(serialized_response, dict) 
-            else serialized_response
+            else serialized_response,
+            "response_time": serialized_response.get("response_time")  # Incluir tiempo de respuesta
         })
 
     except Exception as e:

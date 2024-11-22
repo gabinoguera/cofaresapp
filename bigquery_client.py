@@ -36,7 +36,6 @@ LOCATION = "europe-west4"
 discovery_client = discoveryengine.RankServiceClient() 
 
 def get_products(prompt):
-    client = bigquery.Client(project=project_id)
     query = """
     WITH QueryEmbedding AS (
       SELECT
@@ -268,83 +267,152 @@ def refine_query_with_keywords(message_history):
     
 
 #INTENTAMOS ACTUALIZAR EL HISTORIAL DE MENSAJES
+# Define el schema
+product_schema = FunctionDeclaration(
+    name="product_query",
+    description="Fetches relevant product information based on a search prompt.",
+    parameters={
+        "type": "object",
+        "properties": {
+            "products": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "codigo_web": {"type": "string", "description": "Product web code"},
+                        "nombre": {"type": "string", "description": "Product name"},
+                        "codigo_nacional": {"type": "string", "description": "National product code"},
+                        "descripcion": {"type": "string", "description": "Product description"},
+                        "modo_implementacion": {"type": "string", "description": "Mode of implementation"},
+                        "imagen_url": {"type": "string", "description": "Image URL"},
+                        "distance_to_query": {"type": "number", "description": "Semantic distance to query"},
+                        "descripcion_visual": {"type": "string", "description": "Visual description of the product"},
+                        "matricula0": {"type": "string", "description": "Level 0 registration name"},
+                        "matricula1": {"type": "string", "description": "Level 1 registration name"},
+                        "composicion": {"type": "string", "description": "Composition of the product"},
+                        "forma": {"type": "string", "description": "Form of the product"},
+                        "color": {"type": "string", "description": "Color of the product"},
+                        "empaque": {"type": "string", "description": "Packaging of the product"},
+                        "zona_de_aplicacion": {"type": "string", "description": "Application area of the product"}
+                    }
+                }
+            }
+        }
+    }
+)
+
+# Define tools antes de inicializar el modelo
+tools = [Tool(function_declarations=[product_schema])]
+
+
+vertexai.init(project=PROJECT_ID, location=LOCATION)
+
+# Model definition
+multimodal_model = genai.GenerativeModel(
+"gemini-1.5-flash",
+generation_config=GenerationConfig(temperature=0),
+tools=tools)
+
+chat = multimodal_model.start_chat(response_validation=False)
+# Lista para almacenar el historial de mensajes
+message_history = []
+# Construir el historial de la conversación
+#historial_conversacion = "\n".join([f"{message['role']}: {message['content']}" for message in message_history])
+
+
+def refine_query_with_keywords(message_history):
+
+    try:
+        # Crear un prompt para el modelo que refine la consulta
+        refinement_prompt = """
+        Eres un asistente experto en extracción de palabras clave. A continuación, tienes el historial de una conversación:
+
+        Historial de conversación:
+        {}
+
+        Extrae las palabras clave más importantes de la consulta del usuario en base al historial y devuélvelas en un formato de texto claro.
+        Formato esperado: palabras clave separadas por comas.
+        """.format(
+            "\n".join([f"{message['role'].capitalize()}: {message['content']}" for message in message_history])
+        )
+
+        # Enviar el prompt al modelo para generar el refinamiento
+        refinement_response = chat.send_message(refinement_prompt)
+
+        # Obtener la respuesta generada
+        prompt = refinement_response.text.strip()
+
+        if not prompt or prompt.lower() == "consulta vacía":
+            return {"type": "error", "message": "No se pudo refinar la consulta."}
+
+        logger.info(f"Query refinada generada: {prompt}")
+        return prompt
+
+    except Exception as e:
+        logger.error(f"Error en refine_query_with_keywords: {str(e)}")
+        # En caso de error, devolvemos una consulta vacía o un mensaje genérico
+        return "consulta vacía"
+    
+
+#INTENTAMOS ACTUALIZAR EL HISTORIAL DE MENSAJES
 def generate_response(prompt_user):
     # Agregar el mensaje del usuario al historial
     message_history.append({"role": "user", "content": prompt_user})
 
     # Prompt principal
     instruction_prompt = f"""
-        # Instrucción
-        Eres Cofinder, un asistente farmacéutico experto.
+    # Instrucción
+    Eres Cofinder, un asistente farmacéutico experto.\
+    Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.\
+    Te proporcionamos una lista de productos procedentes de la base de datos y previamente rankeados por relevancia.\
+    Primero debes leer atentamente la entrada del usuario,\
+    y luego desarrollar una respuesta basada en los Criterios proporcionados en la sección Producto a continuación.\
+    
+    # Producto
+    ## Definición de la herramienta
+    Tienes acceso a una lista de productos de una base de datos de productos de farmacia en {tools}\
+    que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional de farmacia.\
+    Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.\
+    
+    ## Criterios
+    - Si la entrada del profesional de farmacia es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\
+        Ejemplos de saludos: «hola», “hola”, “¿Qué tal?».\
+    - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.\
+    - Si la entrada solicita búsquedas no relacionadas con productos de farmacia, aclare que ese no es su propósito como asistente de búsqueda de productos de farmacia.\
+        Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?».\
+    - Cuando la entrada sea relevante para activar la búsqueda de productos de farmacia, utiliza "tools" para recibir una lista de productos de farmacia clasificados que ayuden al usuario con su tarea. Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.
+    - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker.
 
-        Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.
-        Te proporcionamos una lista de productos de parafarmacia y veterinaria procedentes de la base de datos y previamente rankeados por relevancia.
-        Primero debes leer atentamente la entrada del usuario, y luego desarrollar una respuesta basada en los Criterios proporcionados
-        en la sección Producto a continuación.
+    ### Prompt
 
-        # Producto
-        ## Definición de la herramienta
-        Tienes acceso a una lista de productos de una base de datos de productos de farmacia y veterinaria "{tools}"
-        que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional.  
-        Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.
-
-        ## Criterios
-        - Si la entrada del profesional (farmacia o veterinaria) es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.
-            Ejemplos de saludos: «hola», “hola”, “¿Qué tal?”.
-
-        - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.
-            Por ejemplo, si el usuario pide "un producto para la tos", pregunte: "¿Para un humano o un animal? ¿Qué tipo de animal? ¿Qué edad tiene?".
-            O si el usuario pide "un producto para el dolor", pregunte: "¿Qué tipo de dolor? ¿Para qué especie? ¿Hay alguna contraindicación?".
-
-        - Si la entrada solicita búsquedas no relacionadas con productos de parafarmacia o veterinaria,
-            aclare que ese no es su propósito como asistente de búsqueda de productos de parafarmacia y veterinaria.
-            Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?”.
-
-        - Cuando la entrada sea relevante para activar la búsqueda de productos de parafarmacia o veterinaria, utiliza "tools"
-        para recibir una lista de productos de parafarmacia y veterinaria clasificados que ayuden al usuario con su tarea.
-        Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.
-
-        - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker. Tampoco inventes información.
-
-        ### Ejemplos de entradas de usuario y respuestas:
-
-        Entrada: Hola
-
-        Respuesta: ¡Hola! Soy Cofinder, su asistente de búsqueda para productos farmacéuticos y veterinarios. ¿En qué puedo ayudarle?
-
-        Entrada: Busco un antiinflamatorio para perros.
-
-        Respuesta: Por favor, especifique el tamaño y la raza del perro para poder ofrecerle una mejor recomendación. Una vez que me proporcione esta información, accederé a la base de datos.
-
-        Entrada: Necesito un jarabe para la tos para niños, que no sea en cápsulas.
-
-        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de "tools" filtrada según la consulta, priorizando jarabes para la tos infantil, no en cápsulas].
-
-        Entrada: Quiero pedir una pizza.
-
-        Respuesta: Lo siento, pero no estoy programado para gestionar pedidos de comida. Soy un asistente de búsqueda para productos farmacéuticos y veterinarios. ¿Puedo ayudarle con alguna otra consulta relacionada con estos productos?
-
-        Entrada: Leche sin lactosa para bebé.
-
-        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de "tools" filtrada según la consulta, priorizando productos sin lactosa para bebés].
-
-        ### Prompt
-
-        Aquí está la consulta del experto farmacéutico: {prompt_user} 
+        Aquí está la consulta del experto farmacéutico: {prompt_user}
     """
 
     try:
         # Enviar el mensaje al modelo
         response = chat.send_message(instruction_prompt)
-        response_text = response.candidates[0].content.parts[0]
+
+        # Verificar si la respuesta tiene candidatos
+        if not response.candidates:
+            logger.error("No se encontraron candidatos en la respuesta del modelo.")
+            return {"type": "error", "message": "No puedo responder a tu consulta, intenta."}
+
+        # Tomar el primer candidato y verificar si tiene contenido
+        first_candidate = response.candidates[0]
+        if not hasattr(first_candidate, "content") or not first_candidate.content.parts:
+            logger.error("El primer candidato no tiene contenido válido.")
+            return {"type": "error", "message": "No se obtuvo contenido válido en la respuesta del modelo."}
+
+        # Obtener el texto de la respuesta del modelo
+        response_text = first_candidate.content.parts[0]
 
         # Agregar la respuesta del modelo al historial
         message_history.append({"role": "assistant", "content": response_text})
 
-        # Verificar si hay una llamada a función
+        # Verificar si hay una llamada a función en los candidatos
         for candidate in response.candidates:
             for part in candidate.content.parts:
-                if hasattr(part, 'function_call') and part.function_call:
+                if hasattr(part, "function_call") and part.function_call:
                     # Refinar la query utilizando el historial actualizado
                     prompt = refine_query_with_keywords(message_history)
 
@@ -370,7 +438,7 @@ def generate_response(prompt_user):
             "type": "conversation",
             "message": response_text
         }
-                    
+
     except Exception as e:
         logger.error(f"Error en generate_response: {str(e)}")
         return {

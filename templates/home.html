@@ -56,6 +56,11 @@
                 } else {
                     addMessageToChat("bot-message", data.response);
                 }
+
+                // Mostrar el tiempo de respuesta
+                if (data.response_time) {
+                    addMessageToChat("bot-message", `<em>Tiempo de respuesta: ${data.response_time.toFixed(2)} segundos</em>`);
+                }
             })
             .catch(error => {
                 addMessageToChat("bot-message", "Lo siento, ocurrió un error.");
