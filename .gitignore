@@ -9,3 +9,6 @@ evaluation.py
 *.log
 .gitignore
 requirements_old.txt
+*.pyc
+*.log
+.gitignoreapp.log
