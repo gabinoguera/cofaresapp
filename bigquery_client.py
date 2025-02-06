@@ -419,21 +419,40 @@ def generate_response(prompt_user):
                     # Ejecutar búsqueda de productos
                     products = get_products(prompt)
                     if not products:
+                        error_message = "Lo siento, no encontré productos que coincidan con tu búsqueda."
+                        message_history.append({"role": "assistant", "content": error_message})
                         return {
                             "type": "error",
-                            "message": "Lo siento, no encontré productos que coincidan con tu búsqueda."
+                            "message": error_message
                         }
                     
                     ranked_products = rerank_products(prompt, products)
                     
-                    # Devolver directamente la lista de productos
+                    # Crear un mensaje de respuesta que incluya los productos encontrados
+                    products_response = "He encontrado los siguientes productos basados en tu búsqueda."
+                    message_history.append({
+                        "role": "assistant", 
+                        "content": products_response,
+                        "products": ranked_products["products"]  # Guardamos también los productos en el historial
+                    })
+                    
+                    # Agregar un mensaje de seguimiento para mantener la conversación
+                    followup_message = chat.send_message(
+                        "Basándome en los productos que encontré, ¿hay algo específico que te gustaría saber sobre ellos o prefieres realizar una nueva búsqueda?"
+                    )
+                    
+                    if followup_message.candidates:
+                        followup_text = str(followup_message.candidates[0].content.parts[0])
+                        message_history.append({"role": "assistant", "content": followup_text})
+                    
                     return {
                         "type": "product_search",
-                        "message": "He encontrado los siguientes productos:",
-                        "products": ranked_products["products"]
+                        "message": products_response,
+                        "products": ranked_products["products"],
+                        "followup": followup_text if followup_message.candidates else None
                     }
 
-        # Si no hay llamada a función, devolver la respuesta conversacional
+        # Si no hay llamada a función, procesar la respuesta conversacional
         return {
             "type": "conversation",
             "message": response_text
@@ -441,7 +460,9 @@ def generate_response(prompt_user):
 
     except Exception as e:
         logger.error(f"Error en generate_response: {str(e)}")
+        error_message = f"Lo siento, ocurrió un error: {str(e)}"
+        message_history.append({"role": "assistant", "content": error_message})
         return {
             "type": "error",
-            "message": f"Lo siento, ocurrió un error: {str(e)}"
+            "message": error_message
         }

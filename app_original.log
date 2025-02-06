@@ -1,0 +1,898 @@
+2024-11-18 13:36:58,829 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-18 13:36:58,829 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-18 13:37:04,035 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:04] "GET / HTTP/1.1" 200 -
+2024-11-18 13:37:04,144 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:04] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-18 13:37:04,145 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-18 13:37:25,698 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:25] "POST /chat HTTP/1.1" 200 -
+2024-11-18 13:37:40,786 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:40] "POST /chat HTTP/1.1" 200 -
+2024-11-18 13:37:51,193 - INFO - 127.0.0.1 - - [18/Nov/2024 13:37:51] "POST /chat HTTP/1.1" 200 -
+2024-11-18 13:38:00,716 - INFO - Consulta enviada al RAG: una almohada inflable
+2024-11-18 13:38:03,355 - INFO - 127.0.0.1 - - [18/Nov/2024 13:38:03] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:27:30,989 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:27:30,989 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:27:37,520 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:37] "GET / HTTP/1.1" 200 -
+2024-11-19 21:27:37,595 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:37] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:27:37,595 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:27:47,137 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:47] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:27:58,583 - INFO - 127.0.0.1 - - [19/Nov/2024 21:27:58] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:28:15,255 - INFO - Query refinada generada: Por favor, proporciona el historial de la conversación para que pueda extraer las palabras clave más importantes.
+2024-11-19 21:28:20,657 - INFO - 127.0.0.1 - - [19/Nov/2024 21:28:20] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:36:17,130 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:36:17,131 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:36:18,256 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:18] "GET / HTTP/1.1" 200 -
+2024-11-19 21:36:18,414 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:36:18,414 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:36:29,357 - INFO - Historial de mensajes:
+2024-11-19 21:36:29,357 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:36:29,357 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:36:29,358 - INFO - 127.0.0.1 - - [19/Nov/2024 21:36:29] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:37:32,990 - INFO - Historial de mensajes:
+2024-11-19 21:37:32,990 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:37:32,991 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:37:32,991 - INFO - Mensaje 3 - Role: user, Content: busco una crema para las manos
+2024-11-19 21:37:32,991 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, puedo ayudarte a encontrar una crema para las manos. ¿Podrías decirme qué tipo de crema buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:37:32,991 - INFO - 127.0.0.1 - - [19/Nov/2024 21:37:32] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:37:49,781 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:37:49,783 - INFO - 127.0.0.1 - - [19/Nov/2024 21:37:49] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-19 21:40:44,220 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:40:44,221 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:40:48,697 - INFO - 127.0.0.1 - - [19/Nov/2024 21:40:48] "GET / HTTP/1.1" 200 -
+2024-11-19 21:40:48,716 - INFO - 127.0.0.1 - - [19/Nov/2024 21:40:48] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:40:48,719 - INFO - 127.0.0.1 - - [19/Nov/2024 21:40:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:41:01,577 - INFO - Historial de mensajes:
+2024-11-19 21:41:01,579 - INFO - Mensaje 1 - Role: user, Content: crema para las manos
+2024-11-19 21:41:01,579 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de crema para las manos buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:41:01,580 - INFO - 127.0.0.1 - - [19/Nov/2024 21:41:01] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:41:11,817 - INFO - Historial de mensajes:
+2024-11-19 21:41:11,818 - INFO - Mensaje 1 - Role: user, Content: crema para las manos
+2024-11-19 21:41:11,818 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿Puedes decirme qué tipo de crema para las manos buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:41:11,818 - INFO - Mensaje 3 - Role: user, Content: rejuvenecimiento de la piel
+2024-11-19 21:41:11,818 - INFO - Mensaje 4 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia.  ¿Puedes decirme qué tipo de producto buscas para el rejuvenecimiento de la piel? ¿Buscas una crema, un serum, un tratamiento específico?  ¿Para qué tipo de piel? 
+
+2024-11-19 21:41:11,819 - INFO - 127.0.0.1 - - [19/Nov/2024 21:41:11] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:41:28,202 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:41:28,207 - INFO - 127.0.0.1 - - [19/Nov/2024 21:41:28] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-19 21:43:05,712 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:43:05,713 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:43:07,372 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:07] "GET / HTTP/1.1" 200 -
+2024-11-19 21:43:07,395 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:43:07,397 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:07] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:43:12,959 - INFO - Historial de mensajes:
+2024-11-19 21:43:12,960 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:43:12,960 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:43:12,961 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:12] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:43:22,210 - INFO - Historial de mensajes:
+2024-11-19 21:43:22,210 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:43:22,211 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:43:22,211 - INFO - Mensaje 3 - Role: user, Content: busco una crema para las manos
+2024-11-19 21:43:22,211 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, puedo ayudarte a encontrar una crema para las manos. ¿Podrías decirme qué tipo de crema buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:43:22,212 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:22] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:43:28,596 - INFO - Historial de mensajes:
+2024-11-19 21:43:28,596 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:43:28,596 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:43:28,598 - INFO - Mensaje 3 - Role: user, Content: busco una crema para las manos
+2024-11-19 21:43:28,598 - INFO - Mensaje 4 - Role: assistant, Content: Perfecto, puedo ayudarte a encontrar una crema para las manos. ¿Podrías decirme qué tipo de crema buscas? ¿Para qué tipo de piel? ¿Con alguna propiedad específica? 
+
+2024-11-19 21:43:28,598 - INFO - Mensaje 5 - Role: user, Content: para piel seca
+2024-11-19 21:43:28,598 - INFO - Mensaje 6 - Role: assistant, Content: Entiendo. Para poder ayudarte a encontrar la crema para manos ideal, necesito saber para qué tipo de piel la buscas. ¿Podrías decirme si es para piel seca, sensible, mixta o grasa? 
+
+2024-11-19 21:43:28,599 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:28] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:43:35,077 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:43:35,081 - INFO - 127.0.0.1 - - [19/Nov/2024 21:43:35] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-19 21:46:46,115 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-19 21:46:46,115 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-19 21:46:47,830 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:47] "GET / HTTP/1.1" 200 -
+2024-11-19 21:46:47,888 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:47] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-19 21:46:47,894 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:47] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-19 21:46:54,511 - INFO - Historial de mensajes:
+2024-11-19 21:46:54,512 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:46:54,512 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:46:54,514 - INFO - 127.0.0.1 - - [19/Nov/2024 21:46:54] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:47:05,819 - INFO - Historial de mensajes:
+2024-11-19 21:47:05,820 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:47:05,820 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:47:05,821 - INFO - Mensaje 3 - Role: user, Content: crema para las manos piel seca
+2024-11-19 21:47:05,821 - INFO - Mensaje 4 - Role: assistant, Content: Claro, puedo ayudarte a encontrar una crema para manos para piel seca. ¿Podrías decirme qué tipo de crema buscas? ¿Contiene algún ingrediente específico? ¿O prefieres una marca en particular? 
+
+2024-11-19 21:47:05,822 - INFO - 127.0.0.1 - - [19/Nov/2024 21:47:05] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:47:14,919 - INFO - Historial de mensajes:
+2024-11-19 21:47:14,920 - INFO - Mensaje 1 - Role: user, Content: hola
+2024-11-19 21:47:14,920 - INFO - Mensaje 2 - Role: assistant, Content: Hola, soy Cofinder, tu asistente de búsqueda de productos de farmacia. ¿En qué puedo ayudarte hoy? 
+
+2024-11-19 21:47:14,920 - INFO - Mensaje 3 - Role: user, Content: crema para las manos piel seca
+2024-11-19 21:47:14,920 - INFO - Mensaje 4 - Role: assistant, Content: Claro, puedo ayudarte a encontrar una crema para manos para piel seca. ¿Podrías decirme qué tipo de crema buscas? ¿Contiene algún ingrediente específico? ¿O prefieres una marca en particular? 
+
+2024-11-19 21:47:14,920 - INFO - Mensaje 5 - Role: user, Content: mejor con productos naturales
+2024-11-19 21:47:14,920 - INFO - Mensaje 6 - Role: assistant, Content: Entiendo que buscas una crema para manos con productos naturales. Para poder ayudarte mejor, ¿podrías decirme para qué tipo de piel la necesitas? ¿Para piel seca, sensible, o para un uso específico como manos agrietadas? 
+
+2024-11-19 21:47:14,921 - INFO - 127.0.0.1 - - [19/Nov/2024 21:47:14] "POST /chat HTTP/1.1" 200 -
+2024-11-19 21:47:20,680 - ERROR - Error en /chat: 'str' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 31, in chat
+    if response.get("type") == "product_search":
+       ^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+2024-11-19 21:47:20,683 - INFO - 127.0.0.1 - - [19/Nov/2024 21:47:20] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-20 00:31:44,483 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 00:31:44,484 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 00:31:46,024 - INFO - 127.0.0.1 - - [20/Nov/2024 00:31:46] "GET / HTTP/1.1" 200 -
+2024-11-20 00:31:46,117 - INFO - 127.0.0.1 - - [20/Nov/2024 00:31:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:31:46,118 - INFO - 127.0.0.1 - - [20/Nov/2024 00:31:46] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:32:19,236 - ERROR - Error en /chat: Object of type Part is not JSON serializable
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/app.py", line 45, in chat
+    return jsonify({"response": response["message"] if isinstance(response, dict) else response})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.10/Frameworks/Python.framework/Versions/3.11/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type Part is not JSON serializable
+2024-11-20 00:32:19,243 - INFO - 127.0.0.1 - - [20/Nov/2024 00:32:19] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+2024-11-20 00:43:21,369 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 00:43:21,369 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 00:43:23,603 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:23] "GET / HTTP/1.1" 200 -
+2024-11-20 00:43:24,182 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:24] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:43:24,183 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:43:33,438 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:33] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:43:49,230 - INFO - 127.0.0.1 - - [20/Nov/2024 00:43:49] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:43:58,621 - INFO - Query refinada generada: crema para las manos, piel reseca
+2024-11-20 00:44:01,297 - INFO - 127.0.0.1 - - [20/Nov/2024 00:44:01] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:46:53,387 - INFO - 127.0.0.1 - - [20/Nov/2024 00:46:53] "GET / HTTP/1.1" 200 -
+2024-11-20 00:46:53,406 - INFO - 127.0.0.1 - - [20/Nov/2024 00:46:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:46:53,407 - INFO - 127.0.0.1 - - [20/Nov/2024 00:46:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:51:27,032 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 00:51:27,033 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 00:51:28,916 - INFO - 127.0.0.1 - - [20/Nov/2024 00:51:28] "GET / HTTP/1.1" 200 -
+2024-11-20 00:51:29,129 - INFO - 127.0.0.1 - - [20/Nov/2024 00:51:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 00:51:29,132 - INFO - 127.0.0.1 - - [20/Nov/2024 00:51:29] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 00:56:06,621 - INFO - 127.0.0.1 - - [20/Nov/2024 00:56:06] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:56:21,677 - INFO - 127.0.0.1 - - [20/Nov/2024 00:56:21] "POST /chat HTTP/1.1" 200 -
+2024-11-20 00:56:30,432 - INFO - Query refinada generada: champú, caspa, seca
+2024-11-20 00:56:32,870 - INFO - 127.0.0.1 - - [20/Nov/2024 00:56:32] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:20:17,839 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 12:20:17,839 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 12:20:20,631 - INFO - 127.0.0.1 - - [20/Nov/2024 12:20:20] "GET / HTTP/1.1" 200 -
+2024-11-20 12:20:20,677 - INFO - 127.0.0.1 - - [20/Nov/2024 12:20:20] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 12:20:20,678 - INFO - 127.0.0.1 - - [20/Nov/2024 12:20:20] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 12:20:20,751 - INFO - 127.0.0.1 - - [20/Nov/2024 12:20:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-20 12:20:49,346 - INFO - 127.0.0.1 - - [20/Nov/2024 12:20:49] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:21:03,789 - INFO - 127.0.0.1 - - [20/Nov/2024 12:21:03] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:21:12,588 - INFO - 127.0.0.1 - - [20/Nov/2024 12:21:12] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:21:20,782 - INFO - Query refinada generada: crema hidratante, manos, piel seca, reparadora
+2024-11-20 12:21:20,783 - ERROR - Error en generate_response: get_products() missing 1 required positional argument: 'prompt'
+2024-11-20 12:21:20,784 - INFO - 127.0.0.1 - - [20/Nov/2024 12:21:20] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:22:04,222 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 12:22:04,223 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 12:22:05,497 - INFO - 127.0.0.1 - - [20/Nov/2024 12:22:05] "GET / HTTP/1.1" 200 -
+2024-11-20 12:22:05,527 - INFO - 127.0.0.1 - - [20/Nov/2024 12:22:05] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 12:22:05,527 - INFO - 127.0.0.1 - - [20/Nov/2024 12:22:05] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 12:22:17,481 - INFO - 127.0.0.1 - - [20/Nov/2024 12:22:17] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:22:27,433 - INFO - 127.0.0.1 - - [20/Nov/2024 12:22:27] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:22:37,732 - INFO - 127.0.0.1 - - [20/Nov/2024 12:22:37] "POST /chat HTTP/1.1" 200 -
+2024-11-20 12:22:48,950 - INFO - Query refinada generada: crema, manos, secas, reparadora
+2024-11-20 13:09:16,065 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 13:09:16,065 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 13:09:18,190 - INFO - 127.0.0.1 - - [20/Nov/2024 13:09:18] "GET / HTTP/1.1" 200 -
+2024-11-20 13:09:18,264 - INFO - 127.0.0.1 - - [20/Nov/2024 13:09:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 13:09:18,264 - INFO - 127.0.0.1 - - [20/Nov/2024 13:09:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 13:09:27,381 - INFO - 127.0.0.1 - - [20/Nov/2024 13:09:27] "POST /chat HTTP/1.1" 200 -
+2024-11-20 13:10:07,628 - INFO - Query refinada generada: Protector solar, piel sensible
+2024-11-20 13:10:11,420 - ERROR - Error en generate_response: 400 Query parameter 'refined_query' not found at [8:19]; reason: invalidQuery, location: query, message: Query parameter 'refined_query' not found at [8:19]
+
+Location: EU
+Job ID: 99ab73c8-5d6f-491c-a02d-df0a4b7a9822
+
+2024-11-20 13:10:11,421 - INFO - 127.0.0.1 - - [20/Nov/2024 13:10:11] "POST /chat HTTP/1.1" 200 -
+2024-11-20 13:26:52,401 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 13:26:52,401 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 13:26:54,306 - INFO - 127.0.0.1 - - [20/Nov/2024 13:26:54] "GET / HTTP/1.1" 200 -
+2024-11-20 13:26:54,381 - INFO - 127.0.0.1 - - [20/Nov/2024 13:26:54] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 13:26:54,381 - INFO - 127.0.0.1 - - [20/Nov/2024 13:26:54] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 13:27:10,177 - INFO - 127.0.0.1 - - [20/Nov/2024 13:27:10] "POST /chat HTTP/1.1" 200 -
+2024-11-20 13:27:39,715 - INFO - Query refinada generada: Protector solar, piel sensible
+2024-11-20 13:27:45,010 - INFO - 127.0.0.1 - - [20/Nov/2024 13:27:45] "POST /chat HTTP/1.1" 200 -
+2024-11-20 16:34:12,946 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 16:34:12,946 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 16:34:14,917 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:14] "GET / HTTP/1.1" 200 -
+2024-11-20 16:34:14,957 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 16:34:14,957 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:14] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 16:34:22,825 - INFO - 127.0.0.1 - - [20/Nov/2024 16:34:22] "POST /chat HTTP/1.1" 200 -
+2024-11-20 16:34:53,161 - INFO - Query refinada generada: Enjuague bucal, encías sensibles
+2024-11-20 16:35:00,478 - INFO - 127.0.0.1 - - [20/Nov/2024 16:35:00] "POST /chat HTTP/1.1" 200 -
+2024-11-20 17:35:34,777 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 17:35:34,778 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 17:35:38,457 - INFO - 127.0.0.1 - - [20/Nov/2024 17:35:38] "GET / HTTP/1.1" 200 -
+2024-11-20 17:35:38,510 - INFO - 127.0.0.1 - - [20/Nov/2024 17:35:38] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 17:35:38,510 - INFO - 127.0.0.1 - - [20/Nov/2024 17:35:38] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 17:37:18,072 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:18] "GET / HTTP/1.1" 200 -
+2024-11-20 17:37:18,099 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:18] "GET /static/styles.css HTTP/1.1" 200 -
+2024-11-20 17:37:18,099 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 17:37:24,795 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 17:37:53,723 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:53] "GET / HTTP/1.1" 200 -
+2024-11-20 17:37:53,750 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 17:37:53,750 - INFO - 127.0.0.1 - - [20/Nov/2024 17:37:53] "GET /static/styles.css HTTP/1.1" 200 -
+2024-11-20 17:39:44,679 - INFO - 127.0.0.1 - - [20/Nov/2024 17:39:44] "POST /chat HTTP/1.1" 200 -
+2024-11-20 17:39:54,113 - INFO - Query refinada generada: jarabe, tos seca
+2024-11-20 17:40:01,981 - INFO - 127.0.0.1 - - [20/Nov/2024 17:40:01] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:24:46,506 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 18:24:46,506 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 18:24:48,137 - INFO - 127.0.0.1 - - [20/Nov/2024 18:24:48] "GET / HTTP/1.1" 200 -
+2024-11-20 18:24:48,172 - INFO - 127.0.0.1 - - [20/Nov/2024 18:24:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:24:48,173 - INFO - 127.0.0.1 - - [20/Nov/2024 18:24:48] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:25:29,286 - INFO - 127.0.0.1 - - [20/Nov/2024 18:25:29] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:25:41,867 - INFO - 127.0.0.1 - - [20/Nov/2024 18:25:41] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:25:54,684 - INFO - Query refinada generada: tos seca
+2024-11-20 18:26:02,326 - INFO - 127.0.0.1 - - [20/Nov/2024 18:26:02] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:27:39,998 - INFO - 127.0.0.1 - - [20/Nov/2024 18:27:39] "GET / HTTP/1.1" 200 -
+2024-11-20 18:27:40,028 - INFO - 127.0.0.1 - - [20/Nov/2024 18:27:40] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:27:40,029 - INFO - 127.0.0.1 - - [20/Nov/2024 18:27:40] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:28:23,363 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:28:29,121 - INFO - 127.0.0.1 - - [20/Nov/2024 18:28:29] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:29:16,931 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:16] "GET / HTTP/1.1" 200 -
+2024-11-20 18:29:16,968 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:16] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:29:16,969 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:29:25,213 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:29:29,915 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:29] "GET / HTTP/1.1" 200 -
+2024-11-20 18:29:29,937 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:29] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:29:29,939 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:29:31,673 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:31] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:29:38,321 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:29:40,992 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:40] "GET / HTTP/1.1" 200 -
+2024-11-20 18:29:41,008 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:41] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:29:41,008 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:41] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:29:43,564 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:43] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:29:50,381 - INFO - Query refinada generada: jarabe, tos, avellana
+2024-11-20 18:29:56,831 - INFO - 127.0.0.1 - - [20/Nov/2024 18:29:56] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:31:09,836 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:09] "GET / HTTP/1.1" 200 -
+2024-11-20 18:31:09,867 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:09] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:31:09,867 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:09] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:31:32,145 - INFO - Query refinada generada: champú, anticaída, bote, rojo
+2024-11-20 18:31:38,912 - INFO - 127.0.0.1 - - [20/Nov/2024 18:31:38] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:33:14,066 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:14] "GET / HTTP/1.1" 200 -
+2024-11-20 18:33:14,100 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:33:14,101 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:14] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:33:28,654 - INFO - Query refinada generada: leche, polvo, sin, lactosa, bebés
+2024-11-20 18:33:35,473 - INFO - 127.0.0.1 - - [20/Nov/2024 18:33:35] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:34:58,126 - INFO - 127.0.0.1 - - [20/Nov/2024 18:34:58] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:35:18,026 - INFO - Query refinada generada: leche, sin, lactosa, arroz
+2024-11-20 18:35:24,496 - INFO - 127.0.0.1 - - [20/Nov/2024 18:35:24] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:47:52,734 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 18:47:52,734 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 18:47:55,674 - INFO - 127.0.0.1 - - [20/Nov/2024 18:47:55] "GET / HTTP/1.1" 200 -
+2024-11-20 18:47:55,701 - INFO - 127.0.0.1 - - [20/Nov/2024 18:47:55] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 18:47:55,701 - INFO - 127.0.0.1 - - [20/Nov/2024 18:47:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:50:51,644 - INFO - 127.0.0.1 - - [20/Nov/2024 18:50:51] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:51:16,471 - INFO - 127.0.0.1 - - [20/Nov/2024 18:51:16] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:51:48,784 - INFO - 127.0.0.1 - - [20/Nov/2024 18:51:48] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:52:36,064 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:36] "POST /chat HTTP/1.1" 200 -
+2024-11-20 18:52:58,467 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:58] "GET / HTTP/1.1" 200 -
+2024-11-20 18:52:58,497 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:58] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 18:52:58,497 - INFO - 127.0.0.1 - - [20/Nov/2024 18:52:58] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 20:32:45,151 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 20:32:45,151 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 20:32:46,710 - INFO - 127.0.0.1 - - [20/Nov/2024 20:32:46] "GET / HTTP/1.1" 200 -
+2024-11-20 20:32:46,764 - INFO - 127.0.0.1 - - [20/Nov/2024 20:32:46] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 20:32:46,765 - INFO - 127.0.0.1 - - [20/Nov/2024 20:32:46] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 20:32:58,472 - INFO - 127.0.0.1 - - [20/Nov/2024 20:32:58] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:33:15,602 - INFO - Query refinada generada: leche de fórmula, sin lactosa, bebés
+2024-11-20 20:33:22,967 - INFO - 127.0.0.1 - - [20/Nov/2024 20:33:22] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:35:04,868 - INFO - Query refinada generada: leche de arroz, sin lactosa, bebés, fórmula
+2024-11-20 20:35:11,488 - INFO - 127.0.0.1 - - [20/Nov/2024 20:35:11] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:36:34,501 - INFO - 127.0.0.1 - - [20/Nov/2024 20:36:34] "GET / HTTP/1.1" 200 -
+2024-11-20 20:36:34,546 - INFO - 127.0.0.1 - - [20/Nov/2024 20:36:34] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 20:36:34,546 - INFO - 127.0.0.1 - - [20/Nov/2024 20:36:34] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 20:36:40,081 - INFO - Query refinada generada: leche de arroz, sin lactosa, bebés, fórmula
+2024-11-20 20:36:47,428 - INFO - 127.0.0.1 - - [20/Nov/2024 20:36:47] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:39:18,875 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-20 20:39:18,875 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-20 20:39:20,360 - INFO - 127.0.0.1 - - [20/Nov/2024 20:39:20] "GET / HTTP/1.1" 200 -
+2024-11-20 20:39:20,392 - INFO - 127.0.0.1 - - [20/Nov/2024 20:39:20] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-20 20:39:20,392 - INFO - 127.0.0.1 - - [20/Nov/2024 20:39:20] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-20 20:39:53,258 - INFO - 127.0.0.1 - - [20/Nov/2024 20:39:53] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:40:11,915 - INFO - 127.0.0.1 - - [20/Nov/2024 20:40:11] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:40:27,145 - INFO - 127.0.0.1 - - [20/Nov/2024 20:40:27] "POST /chat HTTP/1.1" 200 -
+2024-11-20 20:40:36,617 - INFO - Query refinada generada: champú, anticaída, bote rojo, higiene, cabello
+2024-11-20 20:40:44,942 - INFO - 127.0.0.1 - - [20/Nov/2024 20:40:44] "POST /chat HTTP/1.1" 200 -
+2024-11-21 10:39:19,902 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 10:39:19,902 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 10:39:24,814 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:24] "GET / HTTP/1.1" 200 -
+2024-11-21 10:39:25,043 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 10:39:25,044 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 10:39:25,105 - INFO - 127.0.0.1 - - [21/Nov/2024 10:39:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-21 14:55:51,150 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 14:55:51,150 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 14:55:53,496 - INFO - 127.0.0.1 - - [21/Nov/2024 14:55:53] "GET / HTTP/1.1" 200 -
+2024-11-21 14:55:53,537 - INFO - 127.0.0.1 - - [21/Nov/2024 14:55:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 14:55:53,542 - INFO - 127.0.0.1 - - [21/Nov/2024 14:55:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 14:56:00,467 - INFO - 127.0.0.1 - - [21/Nov/2024 14:56:00] "POST /chat HTTP/1.1" 200 -
+2024-11-21 14:56:12,906 - INFO - Query refinada generada: champú, cabello rizado, uso diario
+2024-11-21 14:56:22,593 - INFO - 127.0.0.1 - - [21/Nov/2024 14:56:22] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:53:22,352 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 15:53:22,353 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 15:53:24,345 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:24] "GET / HTTP/1.1" 200 -
+2024-11-21 15:53:24,388 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 15:53:24,389 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:24] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 15:53:28,645 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:28] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:53:48,086 - INFO - 127.0.0.1 - - [21/Nov/2024 15:53:48] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:54:03,759 - INFO - 127.0.0.1 - - [21/Nov/2024 15:54:03] "POST /chat HTTP/1.1" 200 -
+2024-11-21 15:54:15,338 - INFO - Query refinada generada: champú, bote rojo, adultos
+2024-11-21 15:54:25,582 - INFO - 127.0.0.1 - - [21/Nov/2024 15:54:25] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:47:40,168 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 18:47:40,168 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 18:47:42,285 - INFO - 127.0.0.1 - - [21/Nov/2024 18:47:42] "GET / HTTP/1.1" 200 -
+2024-11-21 18:47:42,330 - INFO - 127.0.0.1 - - [21/Nov/2024 18:47:42] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 18:47:42,331 - INFO - 127.0.0.1 - - [21/Nov/2024 18:47:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 18:48:01,582 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:01] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:48:14,258 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:14] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:48:29,822 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:29] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:48:46,720 - INFO - 127.0.0.1 - - [21/Nov/2024 18:48:46] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:49:02,795 - INFO - 127.0.0.1 - - [21/Nov/2024 18:49:02] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:49:30,896 - INFO - Query refinada generada: champú, rojo, uso diario
+2024-11-21 18:49:36,010 - ERROR - Error en generate_response: can only concatenate str (not "bool") to str
+2024-11-21 18:49:36,012 - INFO - 127.0.0.1 - - [21/Nov/2024 18:49:36] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:52:14,662 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 18:52:14,662 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 18:52:16,909 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:16] "GET / HTTP/1.1" 200 -
+2024-11-21 18:52:16,935 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 18:52:16,935 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:16] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 18:52:31,661 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:31] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:52:46,130 - INFO - 127.0.0.1 - - [21/Nov/2024 18:52:46] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:53:01,963 - INFO - Query refinada generada: champú, bote rojo, uso diario
+2024-11-21 18:53:08,190 - INFO - 127.0.0.1 - - [21/Nov/2024 18:53:08] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:57:34,508 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 18:57:34,508 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 18:57:49,697 - INFO - 127.0.0.1 - - [21/Nov/2024 18:57:49] "GET / HTTP/1.1" 200 -
+2024-11-21 18:57:49,739 - INFO - 127.0.0.1 - - [21/Nov/2024 18:57:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 18:57:49,740 - INFO - 127.0.0.1 - - [21/Nov/2024 18:57:49] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 18:58:09,808 - INFO - 127.0.0.1 - - [21/Nov/2024 18:58:09] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:58:26,982 - INFO - 127.0.0.1 - - [21/Nov/2024 18:58:26] "POST /chat HTTP/1.1" 200 -
+2024-11-21 18:58:39,373 - INFO - Query refinada generada: champú, uso diario, cabello normal, bote rojo
+2024-11-21 18:58:46,494 - INFO - 127.0.0.1 - - [21/Nov/2024 18:58:46] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:02:42,980 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:02:42,980 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:02:44,716 - INFO - 127.0.0.1 - - [21/Nov/2024 19:02:44] "GET / HTTP/1.1" 200 -
+2024-11-21 19:02:44,752 - INFO - 127.0.0.1 - - [21/Nov/2024 19:02:44] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:02:44,752 - INFO - 127.0.0.1 - - [21/Nov/2024 19:02:44] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:03:26,934 - INFO - 127.0.0.1 - - [21/Nov/2024 19:03:26] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:04:05,467 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:05] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:04:29,087 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:29] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:04:50,679 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:50] "GET / HTTP/1.1" 200 -
+2024-11-21 19:04:50,701 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:04:50,701 - INFO - 127.0.0.1 - - [21/Nov/2024 19:04:50] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:05:02,386 - INFO - Query refinada generada: champú, uso diario, pelo rizado, bote rojo
+2024-11-21 19:05:10,118 - ERROR - Error en generate_response: can only concatenate str (not "NoneType") to str
+2024-11-21 19:05:10,120 - INFO - 127.0.0.1 - - [21/Nov/2024 19:05:10] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:07:13,576 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:07:13,576 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:07:14,722 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:14] "GET / HTTP/1.1" 200 -
+2024-11-21 19:07:14,750 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:14] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:07:14,750 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:14] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:07:30,506 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:30] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:07:48,335 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:48] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:07:55,493 - INFO - 127.0.0.1 - - [21/Nov/2024 19:07:55] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:08:11,925 - INFO - 127.0.0.1 - - [21/Nov/2024 19:08:11] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:08:37,631 - INFO - Query refinada generada: champú, anticaída, adulto, bote, rojo
+2024-11-21 19:08:43,686 - INFO - 127.0.0.1 - - [21/Nov/2024 19:08:43] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:25:20,817 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:25:20,817 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:25:22,311 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:22] "GET / HTTP/1.1" 200 -
+2024-11-21 19:25:22,627 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:22] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:25:22,628 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:22] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:25:46,143 - INFO - Query refinada generada: leche, sin lactosa, bebes
+2024-11-21 19:25:51,839 - INFO - 127.0.0.1 - - [21/Nov/2024 19:25:51] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:26:36,015 - INFO - Query refinada generada: leche, arroz, sin lactosa, bebes
+2024-11-21 19:26:41,379 - INFO - 127.0.0.1 - - [21/Nov/2024 19:26:41] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:27:45,625 - INFO - 127.0.0.1 - - [21/Nov/2024 19:27:45] "GET / HTTP/1.1" 200 -
+2024-11-21 19:27:45,655 - INFO - 127.0.0.1 - - [21/Nov/2024 19:27:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:27:45,655 - INFO - 127.0.0.1 - - [21/Nov/2024 19:27:45] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:28:16,096 - INFO - Query refinada generada: champu, uso diario, bote rojo
+2024-11-21 19:28:21,950 - INFO - 127.0.0.1 - - [21/Nov/2024 19:28:21] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:29:56,446 - INFO - 127.0.0.1 - - [21/Nov/2024 19:29:56] "GET / HTTP/1.1" 200 -
+2024-11-21 19:29:56,469 - INFO - 127.0.0.1 - - [21/Nov/2024 19:29:56] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:29:56,470 - INFO - 127.0.0.1 - - [21/Nov/2024 19:29:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:30:35,954 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-21 19:30:35,955 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-21 19:30:37,400 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:37] "GET / HTTP/1.1" 200 -
+2024-11-21 19:30:37,428 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:37] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-21 19:30:37,430 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-21 19:30:43,259 - INFO - 127.0.0.1 - - [21/Nov/2024 19:30:43] "POST /chat HTTP/1.1" 200 -
+2024-11-21 19:31:12,226 - INFO - Query refinada generada: champú, uso diario, bote rojo
+2024-11-21 19:31:19,068 - INFO - 127.0.0.1 - - [21/Nov/2024 19:31:19] "POST /chat HTTP/1.1" 200 -
+2024-11-22 01:14:33,707 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 01:14:33,707 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 01:14:35,329 - INFO - 127.0.0.1 - - [22/Nov/2024 01:14:35] "GET / HTTP/1.1" 200 -
+2024-11-22 01:14:35,431 - INFO - 127.0.0.1 - - [22/Nov/2024 01:14:35] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 01:14:35,431 - INFO - 127.0.0.1 - - [22/Nov/2024 01:14:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 01:14:40,042 - INFO - Tiempo de respuesta del modelo: 1.02 segundos
+2024-11-22 01:14:40,045 - INFO - 127.0.0.1 - - [22/Nov/2024 01:14:40] "POST /chat HTTP/1.1" 200 -
+2024-11-22 01:14:54,605 - INFO - Tiempo de respuesta del modelo: 0.67 segundos
+2024-11-22 01:14:54,607 - INFO - 127.0.0.1 - - [22/Nov/2024 01:14:54] "POST /chat HTTP/1.1" 200 -
+2024-11-22 11:21:51,773 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:21:51,776 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:21:51,792 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 11:21:51,792 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 11:24:47,287 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:24:47,290 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:24:47,301 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 11:24:47,301 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 11:24:57,540 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:24:57,543 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:24:57,552 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 11:24:57,552 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 11:25:07,697 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:07] "GET / HTTP/1.1" 200 -
+2024-11-22 11:25:07,720 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 11:25:07,720 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:07] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 11:25:07,765 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-22 11:25:12,684 - INFO - Tiempo de respuesta del modelo: 0.94 segundos
+2024-11-22 11:25:12,686 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:12] "POST /chat HTTP/1.1" 200 -
+2024-11-22 11:25:35,915 - ERROR - Error en generate_response: list index out of range
+2024-11-22 11:25:35,918 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:35] "POST /chat HTTP/1.1" 200 -
+2024-11-22 11:25:48,688 - ERROR - Error en generate_response: 400 Unable to submit request because it must include at least one parts field, which describes the prompt input. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
+2024-11-22 11:25:48,690 - INFO - 127.0.0.1 - - [22/Nov/2024 11:25:48] "POST /chat HTTP/1.1" 200 -
+2024-11-22 11:27:59,412 - INFO - 127.0.0.1 - - [22/Nov/2024 11:27:59] "GET / HTTP/1.1" 200 -
+2024-11-22 11:27:59,433 - INFO - 127.0.0.1 - - [22/Nov/2024 11:27:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 11:27:59,434 - INFO - 127.0.0.1 - - [22/Nov/2024 11:27:59] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 11:48:29,680 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:48:29,683 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:48:29,705 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 11:48:29,705 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 11:48:31,655 - INFO - 127.0.0.1 - - [22/Nov/2024 11:48:31] "GET / HTTP/1.1" 200 -
+2024-11-22 11:48:31,682 - INFO - 127.0.0.1 - - [22/Nov/2024 11:48:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 11:48:31,682 - INFO - 127.0.0.1 - - [22/Nov/2024 11:48:31] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 11:48:35,914 - ERROR - Error detallado en generate_response: Unexpected item type: role: "user"
+parts {
+  text: "\n        # Instrucción\n        Eres Cofinder, un asistente farmacéutico experto.\n\n        Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.\n        Te proporcionamos una lista de productos de parafarmacia y veterinaria procedentes de la base de datos y previamente rankeados por relevancia.\n        Primero debes leer atentamente la entrada del usuario, y luego desarrollar una respuesta basada en los Criterios proporcionados\n        en la sección Producto a continuación.\n\n        # Producto\n        ## Definición de la herramienta\n        Tienes acceso a una lista de productos de una base de datos de productos de farmacia y veterinaria \"[function_declarations {\n  name: \"product_query\"\n  description: \"Fetches relevant product information based on a search prompt.\"\n  parameters {\n    type_: OBJECT\n    properties {\n      key: \"products\"\n      value {\n        type_: ARRAY\n        items {\n          type_: OBJECT\n          properties {\n            key: \"zona_de_aplicacion\"\n            value {\n              type_: STRING\n              description: \"Application area of the product\"\n            }\n          }\n          properties {\n            key: \"nombre\"\n            value {\n              type_: STRING\n              description: \"Product name\"\n            }\n          }\n          properties {\n            key: \"modo_implementacion\"\n            value {\n              type_: STRING\n              description: \"Mode of implementation\"\n            }\n          }\n          properties {\n            key: \"matricula1\"\n            value {\n              type_: STRING\n              description: \"Level 1 registration name\"\n            }\n          }\n          properties {\n            key: \"matricula0\"\n            value {\n              type_: STRING\n              description: \"Level 0 registration name\"\n            }\n          }\n          properties {\n            key: \"imagen_url\"\n            value {\n              type_: STRING\n              description: \"Image URL\"\n            }\n          }\n          properties {\n            key: \"forma\"\n            value {\n              type_: STRING\n              description: \"Form of the product\"\n            }\n          }\n          properties {\n            key: \"empaque\"\n            value {\n              type_: STRING\n              description: \"Packaging of the product\"\n            }\n          }\n          properties {\n            key: \"distance_to_query\"\n            value {\n              type_: NUMBER\n              description: \"Semantic distance to query\"\n            }\n          }\n          properties {\n            key: \"descripcion\"\n            value {\n              type_: STRING\n              description: \"Product description\"\n            }\n          }\n          properties {\n            key: \"descripcion_visual\"\n            value {\n              type_: STRING\n              description: \"Visual description of the product\"\n            }\n          }\n          properties {\n            key: \"composicion\"\n            value {\n              type_: STRING\n              description: \"Composition of the product\"\n            }\n          }\n          properties {\n            key: \"color\"\n            value {\n              type_: STRING\n              description: \"Color of the product\"\n            }\n          }\n          properties {\n            key: \"codigo_web\"\n            value {\n              type_: STRING\n              description: \"Product web code\"\n            }\n          }\n          properties {\n            key: \"codigo_nacional\"\n            value {\n              type_: STRING\n              description: \"National product code\"\n            }\n          }\n          property_ordering: \"codigo_web\"\n          property_ordering: \"nombre\"\n          property_ordering: \"codigo_nacional\"\n          property_ordering: \"descripcion\"\n          property_ordering: \"modo_implementacion\"\n          property_ordering: \"imagen_url\"\n          property_ordering: \"distance_to_query\"\n          property_ordering: \"descripcion_visual\"\n          property_ordering: \"matricula0\"\n          property_ordering: \"matricula1\"\n          property_ordering: \"composicion\"\n          property_ordering: \"forma\"\n          property_ordering: \"color\"\n          property_ordering: \"empaque\"\n          property_ordering: \"zona_de_aplicacion\"\n        }\n      }\n    }\n    property_ordering: \"products\"\n  }\n}\n]\"\n        que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional.  \n        Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.\n\n        ## Criterios\n        - Si la entrada del profesional (farmacia o veterinaria) es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\n            Ejemplos de saludos: «hola», “hola”, “¿Qué tal?”.\n\n        - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.\n            Por ejemplo, si el usuario pide \"un producto para la tos\", pregunte: \"¿Para un humano o un animal? ¿Qué tipo de animal? ¿Qué edad tiene?\".\n            O si el usuario pide \"un producto para el dolor\", pregunte: \"¿Qué tipo de dolor? ¿Zona corporal afectada? ¿Hay alguna contraindicación?\".\n\n        - Si la entrada solicita búsquedas no relacionadas con productos de parafarmacia o veterinaria,\n            aclare que ese no es su propósito como asistente de búsqueda de productos de parafarmacia y veterinaria.\n            Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?”.\n\n        - Cuando la entrada sea relevante para activar la búsqueda de productos de parafarmacia o veterinaria, utiliza \"tools\"\n        para recibir una lista de productos de parafarmacia y veterinaria clasificados que ayuden al usuario con su tarea.\n        Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.\n\n        - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker. Tampoco inventes información.\n\n        ### Ejemplos de entradas de usuario y respuestas:\n\n        Entrada: Hola\n\n        Respuesta: ¡Hola! Soy Cofinder, su asistente de búsqueda para productos farmacéuticos y veterinarios. ¿En qué puedo ayudarle?\n\n        Entrada: Busco un antiinflamatorio para perros.\n\n        Respuesta: Por favor, especifique el tamaño y la raza del perro para poder ofrecerle una mejor recomendación. Una vez que me proporcione esta información, accederé a la base de datos.\n\n        Entrada: Necesito un jarabe para la tos para niños, que no sea en cápsulas.\n\n        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de \"tools\" filtrada según la consulta, priorizando jarabes para la tos infantil, no en cápsulas].\n\n        Entrada: Quiero pedir una pizza.\n\n        Respuesta: Lo siento, pero no estoy programado para gestionar pedidos de comida. Soy un asistente de búsqueda para productos farmacéuticos y veterinarios. ¿Puedo ayudarle con alguna otra consulta relacionada con estos productos?\n\n        Entrada: Leche sin lactosa para bebé.\n\n        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de \"tools\" filtrada según la consulta, priorizando productos sin lactosa para bebés].\n\n        ### Prompt\n\n        Aquí está la consulta del experto farmacéutico: hola \n    "
+}
+.Only types that represent a single Content or a single Part are supported here.
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/bigquery_client.py", line 353, in generate_response
+    response = chat.send_message([instruction_content, user_prompt_content])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 1257, in send_message
+    return self._send_message(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 1372, in _send_message
+    _to_content(value=content, role=self._USER_ROLE)
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 2838, in _to_content
+    raise TypeError(
+TypeError: Unexpected item type: role: "user"
+parts {
+  text: "\n        # Instrucción\n        Eres Cofinder, un asistente farmacéutico experto.\n\n        Tu tarea consiste en responder eficazmente a las consultas de los profesionales de farmacia.\n        Te proporcionamos una lista de productos de parafarmacia y veterinaria procedentes de la base de datos y previamente rankeados por relevancia.\n        Primero debes leer atentamente la entrada del usuario, y luego desarrollar una respuesta basada en los Criterios proporcionados\n        en la sección Producto a continuación.\n\n        # Producto\n        ## Definición de la herramienta\n        Tienes acceso a una lista de productos de una base de datos de productos de farmacia y veterinaria \"[function_declarations {\n  name: \"product_query\"\n  description: \"Fetches relevant product information based on a search prompt.\"\n  parameters {\n    type_: OBJECT\n    properties {\n      key: \"products\"\n      value {\n        type_: ARRAY\n        items {\n          type_: OBJECT\n          properties {\n            key: \"zona_de_aplicacion\"\n            value {\n              type_: STRING\n              description: \"Application area of the product\"\n            }\n          }\n          properties {\n            key: \"nombre\"\n            value {\n              type_: STRING\n              description: \"Product name\"\n            }\n          }\n          properties {\n            key: \"modo_implementacion\"\n            value {\n              type_: STRING\n              description: \"Mode of implementation\"\n            }\n          }\n          properties {\n            key: \"matricula1\"\n            value {\n              type_: STRING\n              description: \"Level 1 registration name\"\n            }\n          }\n          properties {\n            key: \"matricula0\"\n            value {\n              type_: STRING\n              description: \"Level 0 registration name\"\n            }\n          }\n          properties {\n            key: \"imagen_url\"\n            value {\n              type_: STRING\n              description: \"Image URL\"\n            }\n          }\n          properties {\n            key: \"forma\"\n            value {\n              type_: STRING\n              description: \"Form of the product\"\n            }\n          }\n          properties {\n            key: \"empaque\"\n            value {\n              type_: STRING\n              description: \"Packaging of the product\"\n            }\n          }\n          properties {\n            key: \"distance_to_query\"\n            value {\n              type_: NUMBER\n              description: \"Semantic distance to query\"\n            }\n          }\n          properties {\n            key: \"descripcion\"\n            value {\n              type_: STRING\n              description: \"Product description\"\n            }\n          }\n          properties {\n            key: \"descripcion_visual\"\n            value {\n              type_: STRING\n              description: \"Visual description of the product\"\n            }\n          }\n          properties {\n            key: \"composicion\"\n            value {\n              type_: STRING\n              description: \"Composition of the product\"\n            }\n          }\n          properties {\n            key: \"color\"\n            value {\n              type_: STRING\n              description: \"Color of the product\"\n            }\n          }\n          properties {\n            key: \"codigo_web\"\n            value {\n              type_: STRING\n              description: \"Product web code\"\n            }\n          }\n          properties {\n            key: \"codigo_nacional\"\n            value {\n              type_: STRING\n              description: \"National product code\"\n            }\n          }\n          property_ordering: \"codigo_web\"\n          property_ordering: \"nombre\"\n          property_ordering: \"codigo_nacional\"\n          property_ordering: \"descripcion\"\n          property_ordering: \"modo_implementacion\"\n          property_ordering: \"imagen_url\"\n          property_ordering: \"distance_to_query\"\n          property_ordering: \"descripcion_visual\"\n          property_ordering: \"matricula0\"\n          property_ordering: \"matricula1\"\n          property_ordering: \"composicion\"\n          property_ordering: \"forma\"\n          property_ordering: \"color\"\n          property_ordering: \"empaque\"\n          property_ordering: \"zona_de_aplicacion\"\n        }\n      }\n    }\n    property_ordering: \"products\"\n  }\n}\n]\"\n        que han sido reordenados para proporcionar la mejor respuesta posible a la consulta de un profesional.  \n        Las instrucciones para realizar la tarea de respuesta a una pregunta se proporcionan en la consulta del usuario.\n\n        ## Criterios\n        - Si la entrada del profesional (farmacia o veterinaria) es un saludo, preséntese cordialmente como Cofinder el asistente de búsqueda.\n            Ejemplos de saludos: «hola», “hola”, “¿Qué tal?”.\n\n        - Si es necesario, puede pedir detalles aclaratorios para ajustar la búsqueda a resultados eficientes.\n            Por ejemplo, si el usuario pide \"un producto para la tos\", pregunte: \"¿Para un humano o un animal? ¿Qué tipo de animal? ¿Qué edad tiene?\".\n            O si el usuario pide \"un producto para el dolor\", pregunte: \"¿Qué tipo de dolor? ¿Zona corporal afectada? ¿Hay alguna contraindicación?\".\n\n        - Si la entrada solicita búsquedas no relacionadas con productos de parafarmacia o veterinaria,\n            aclare que ese no es su propósito como asistente de búsqueda de productos de parafarmacia y veterinaria.\n            Ejemplos de solicitudes no pertinentes: «Quiero la receta de una lasaña», “Quiero pedir una pizza”, “¿Qué tiempo hace hoy?”.\n\n        - Cuando la entrada sea relevante para activar la búsqueda de productos de parafarmacia o veterinaria, utiliza \"tools\"\n        para recibir una lista de productos de parafarmacia y veterinaria clasificados que ayuden al usuario con su tarea.\n        Acepta la solicitud del usuario y proporciónale la lista de productos sin reescribirla.\n\n        - No sugieras ni añadas productos que no estén en la lista proporcionada por el reranker. Tampoco inventes información.\n\n        ### Ejemplos de entradas de usuario y respuestas:\n\n        Entrada: Hola\n\n        Respuesta: ¡Hola! Soy Cofinder, su asistente de búsqueda para productos farmacéuticos y veterinarios. ¿En qué puedo ayudarle?\n\n        Entrada: Busco un antiinflamatorio para perros.\n\n        Respuesta: Por favor, especifique el tamaño y la raza del perro para poder ofrecerle una mejor recomendación. Una vez que me proporcione esta información, accederé a la base de datos.\n\n        Entrada: Necesito un jarabe para la tos para niños, que no sea en cápsulas.\n\n        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de \"tools\" filtrada según la consulta, priorizando jarabes para la tos infantil, no en cápsulas].\n\n        Entrada: Quiero pedir una pizza.\n\n        Respuesta: Lo siento, pero no estoy programado para gestionar pedidos de comida. Soy un asistente de búsqueda para productos farmacéuticos y veterinarios. ¿Puedo ayudarle con alguna otra consulta relacionada con estos productos?\n\n        Entrada: Leche sin lactosa para bebé.\n\n        Respuesta: Accediendo a la base de datos... [Aquí se insertaría la lista de \"tools\" filtrada según la consulta, priorizando productos sin lactosa para bebés].\n\n        ### Prompt\n\n        Aquí está la consulta del experto farmacéutico: hola \n    "
+}
+.Only types that represent a single Content or a single Part are supported here.
+2024-11-22 11:48:35,918 - INFO - 127.0.0.1 - - [22/Nov/2024 11:48:35] "POST /chat HTTP/1.1" 200 -
+2024-11-22 11:53:47,250 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:53:47,254 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:53:47,270 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 11:53:47,270 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 11:53:49,218 - INFO - 127.0.0.1 - - [22/Nov/2024 11:53:49] "GET / HTTP/1.1" 200 -
+2024-11-22 11:53:49,248 - INFO - 127.0.0.1 - - [22/Nov/2024 11:53:49] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 11:53:49,248 - INFO - 127.0.0.1 - - [22/Nov/2024 11:53:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 11:53:55,942 - ERROR - Error detallado en generate_response: 400 Please use a valid role: user, model.
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+    return callable_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INVALID_ARGUMENT
+	details = "Please use a valid role: user, model."
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:142.250.200.138:443 {grpc_message:"Please use a valid role: user, model.", grpc_status:3, created_time:"2024-11-22T11:53:55.938489+01:00"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/bigquery_client.py", line 323, in generate_response
+    response = chat.send_message(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 1257, in send_message
+    return self._send_message(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 1386, in _send_message
+    response = self._model._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 779, in _generate_content
+    gapic_response = self._prediction_client.generate_content(request=request)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/cloud/aiplatform_v1/services/prediction_service/client.py", line 2159, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.InvalidArgument: 400 Please use a valid role: user, model.
+2024-11-22 11:53:55,950 - INFO - 127.0.0.1 - - [22/Nov/2024 11:53:55] "POST /chat HTTP/1.1" 200 -
+2024-11-22 11:58:35,641 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:58:35,644 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 11:58:35,662 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 11:58:35,662 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 11:58:37,011 - INFO - 127.0.0.1 - - [22/Nov/2024 11:58:37] "GET / HTTP/1.1" 200 -
+2024-11-22 11:58:37,616 - INFO - 127.0.0.1 - - [22/Nov/2024 11:58:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 11:58:37,617 - INFO - 127.0.0.1 - - [22/Nov/2024 11:58:37] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 11:58:41,352 - ERROR - Error detallado en generate_response: 400 Please use a valid role: user, model.
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+    return callable_(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/grpc/_channel.py", line 1181, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/grpc/_channel.py", line 1006, in _end_unary_response_blocking
+    raise _InactiveRpcError(state)  # pytype: disable=not-instantiable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+grpc._channel._InactiveRpcError: <_InactiveRpcError of RPC that terminated with:
+	status = StatusCode.INVALID_ARGUMENT
+	details = "Please use a valid role: user, model."
+	debug_error_string = "UNKNOWN:Error received from peer ipv4:142.250.184.170:443 {grpc_message:"Please use a valid role: user, model.", grpc_status:3, created_time:"2024-11-22T11:58:41.347811+01:00"}"
+>
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/bigquery_client.py", line 321, in generate_response
+    response = chat.send_message(message)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 1257, in send_message
+    return self._send_message(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 1386, in _send_message
+    response = self._model._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/vertexai/generative_models/_generative_models.py", line 779, in _generate_content
+    gapic_response = self._prediction_client.generate_content(request=request)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/cloud/aiplatform_v1/services/prediction_service/client.py", line 2159, in generate_content
+    response = rpc(
+               ^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/.venv/lib/python3.11/site-packages/google/api_core/grpc_helpers.py", line 78, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.InvalidArgument: 400 Please use a valid role: user, model.
+2024-11-22 11:58:41,359 - INFO - 127.0.0.1 - - [22/Nov/2024 11:58:41] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:03:04,719 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:03:04,722 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:03:04,734 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:03:04,734 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:03:06,558 - INFO - 127.0.0.1 - - [22/Nov/2024 12:03:06] "GET / HTTP/1.1" 200 -
+2024-11-22 12:03:06,583 - INFO - 127.0.0.1 - - [22/Nov/2024 12:03:06] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:03:06,584 - INFO - 127.0.0.1 - - [22/Nov/2024 12:03:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:03:10,653 - INFO - 127.0.0.1 - - [22/Nov/2024 12:03:10] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:03:31,279 - ERROR - Error en generate_response: list index out of range
+2024-11-22 12:03:31,280 - INFO - 127.0.0.1 - - [22/Nov/2024 12:03:31] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:17:58,216 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:17:58,219 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:17:58,235 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:17:58,235 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:17:59,889 - INFO - 127.0.0.1 - - [22/Nov/2024 12:17:59] "GET / HTTP/1.1" 200 -
+2024-11-22 12:17:59,932 - INFO - 127.0.0.1 - - [22/Nov/2024 12:17:59] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:17:59,933 - INFO - 127.0.0.1 - - [22/Nov/2024 12:17:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:18:04,590 - ERROR - Error en generate_response: 'list' object has no attribute 'content'
+2024-11-22 12:18:04,591 - INFO - 127.0.0.1 - - [22/Nov/2024 12:18:04] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:20:47,793 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:20:47,796 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:20:47,806 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:20:47,806 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:20:49,437 - INFO - 127.0.0.1 - - [22/Nov/2024 12:20:49] "GET / HTTP/1.1" 200 -
+2024-11-22 12:20:49,513 - INFO - 127.0.0.1 - - [22/Nov/2024 12:20:49] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:20:49,513 - INFO - 127.0.0.1 - - [22/Nov/2024 12:20:49] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:20:53,993 - INFO - 127.0.0.1 - - [22/Nov/2024 12:20:53] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:21:09,917 - INFO - 127.0.0.1 - - [22/Nov/2024 12:21:09] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:21:48,200 - INFO - 127.0.0.1 - - [22/Nov/2024 12:21:48] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:22:49,538 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:22:49,542 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:22:49,557 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:22:49,557 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:22:50,774 - INFO - 127.0.0.1 - - [22/Nov/2024 12:22:50] "GET / HTTP/1.1" 200 -
+2024-11-22 12:22:50,804 - INFO - 127.0.0.1 - - [22/Nov/2024 12:22:50] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:22:50,804 - INFO - 127.0.0.1 - - [22/Nov/2024 12:22:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:22:57,571 - INFO - 127.0.0.1 - - [22/Nov/2024 12:22:57] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:23:09,582 - ERROR - El primer candidato no tiene contenido válido.
+2024-11-22 12:23:09,583 - INFO - 127.0.0.1 - - [22/Nov/2024 12:23:09] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:23:18,596 - INFO - 127.0.0.1 - - [22/Nov/2024 12:23:18] "GET / HTTP/1.1" 200 -
+2024-11-22 12:23:18,614 - INFO - 127.0.0.1 - - [22/Nov/2024 12:23:18] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:23:18,614 - INFO - 127.0.0.1 - - [22/Nov/2024 12:23:18] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:23:22,396 - ERROR - Error en generate_response: 400 Unable to submit request because it must include at least one parts field, which describes the prompt input. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini
+2024-11-22 12:23:22,397 - INFO - 127.0.0.1 - - [22/Nov/2024 12:23:22] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:27:19,516 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:27:19,519 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:27:19,536 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:27:19,536 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:27:20,991 - INFO - 127.0.0.1 - - [22/Nov/2024 12:27:20] "GET / HTTP/1.1" 200 -
+2024-11-22 12:27:21,070 - INFO - 127.0.0.1 - - [22/Nov/2024 12:27:21] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:27:21,070 - INFO - 127.0.0.1 - - [22/Nov/2024 12:27:21] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:27:24,619 - ERROR - Error en generate_response: 'dict' object has no attribute '_raw_part'
+2024-11-22 12:27:24,619 - INFO - 127.0.0.1 - - [22/Nov/2024 12:27:24] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:32:42,136 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:32:42,139 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:32:42,151 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:32:42,151 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:32:43,261 - INFO - 127.0.0.1 - - [22/Nov/2024 12:32:43] "GET / HTTP/1.1" 200 -
+2024-11-22 12:32:43,327 - INFO - 127.0.0.1 - - [22/Nov/2024 12:32:43] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:32:43,327 - INFO - 127.0.0.1 - - [22/Nov/2024 12:32:43] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:32:46,482 - ERROR - Error en generate_response: 'dict' object has no attribute '_raw_part'
+2024-11-22 12:32:46,483 - INFO - 127.0.0.1 - - [22/Nov/2024 12:32:46] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:33:29,045 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:33:29,049 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:33:29,058 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:33:29,058 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:33:30,181 - INFO - 127.0.0.1 - - [22/Nov/2024 12:33:30] "GET / HTTP/1.1" 200 -
+2024-11-22 12:33:30,200 - INFO - 127.0.0.1 - - [22/Nov/2024 12:33:30] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:33:30,204 - INFO - 127.0.0.1 - - [22/Nov/2024 12:33:30] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:33:34,090 - INFO - 127.0.0.1 - - [22/Nov/2024 12:33:34] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:33:59,594 - INFO - 127.0.0.1 - - [22/Nov/2024 12:33:59] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:34:08,116 - INFO - Query refinada generada: champú, anticaída, hombre, diario
+2024-11-22 12:34:14,245 - INFO - 127.0.0.1 - - [22/Nov/2024 12:34:14] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:37:41,535 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:37:41,539 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:37:41,555 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:37:41,555 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:37:42,902 - INFO - 127.0.0.1 - - [22/Nov/2024 12:37:42] "GET / HTTP/1.1" 200 -
+2024-11-22 12:37:42,932 - INFO - 127.0.0.1 - - [22/Nov/2024 12:37:42] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:37:42,932 - INFO - 127.0.0.1 - - [22/Nov/2024 12:37:42] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:37:47,740 - INFO - 127.0.0.1 - - [22/Nov/2024 12:37:47] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:38:09,535 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:09] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:38:20,412 - INFO - Query refinada generada: champú, anticaída, uso diario, cabello normal
+2024-11-22 12:38:27,392 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:27] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:38:37,760 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:37] "GET / HTTP/1.1" 200 -
+2024-11-22 12:38:37,787 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:38:37,787 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:37] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:38:52,064 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:38:52,067 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2024-11-22 12:38:52,077 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-22 12:38:52,077 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-22 12:38:53,169 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:53] "GET / HTTP/1.1" 200 -
+2024-11-22 12:38:53,231 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:53] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-11-22 12:38:53,233 - INFO - 127.0.0.1 - - [22/Nov/2024 12:38:53] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2024-11-22 12:39:01,467 - INFO - 127.0.0.1 - - [22/Nov/2024 12:39:01] "POST /chat HTTP/1.1" 200 -
+2024-11-22 12:39:11,431 - ERROR - El primer candidato no tiene contenido válido.
+2024-11-22 12:39:11,432 - INFO - 127.0.0.1 - - [22/Nov/2024 12:39:11] "POST /chat HTTP/1.1" 200 -
+2025-02-06 10:44:14,561 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 10:44:14,565 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 10:44:14,582 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-06 10:44:14,582 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 10:44:20,163 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:20] "GET / HTTP/1.1" 200 -
+2025-02-06 10:44:20,239 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:20] "GET /static/logo-cofares-png.png HTTP/1.1" 200 -
+2025-02-06 10:44:20,239 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:20] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-06 10:44:20,303 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:20] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 10:44:27,380 - ERROR - Error en generate_response: 403 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash' (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "aiplatform.googleapis.com"
+metadata {
+  key: "resource"
+  value: "projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash"
+}
+metadata {
+  key: "permission"
+  value: "aiplatform.endpoints.predict"
+}
+]
+2025-02-06 10:44:27,382 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:27] "POST /chat HTTP/1.1" 200 -
+2025-02-06 10:44:32,791 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:32] "GET / HTTP/1.1" 200 -
+2025-02-06 10:44:32,807 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:32] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-02-06 10:44:32,808 - INFO - 127.0.0.1 - - [06/Feb/2025 10:44:32] "[36mGET /static/logo-cofares-png.png HTTP/1.1[0m" 304 -
+2025-02-06 10:53:27,576 - INFO - 127.0.0.1 - - [06/Feb/2025 10:53:27] "GET / HTTP/1.1" 200 -
+2025-02-06 10:53:27,599 - INFO - 127.0.0.1 - - [06/Feb/2025 10:53:27] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-06 10:53:27,600 - INFO - 127.0.0.1 - - [06/Feb/2025 10:53:27] "GET /static/logo-cofares-png.png HTTP/1.1" 200 -
+2025-02-06 10:53:27,627 - INFO - 127.0.0.1 - - [06/Feb/2025 10:53:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 10:54:10,014 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 10:54:10,017 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 10:54:10,030 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-06 10:54:10,030 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 10:54:12,396 - INFO - 127.0.0.1 - - [06/Feb/2025 10:54:12] "GET / HTTP/1.1" 200 -
+2025-02-06 10:54:12,422 - INFO - 127.0.0.1 - - [06/Feb/2025 10:54:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-02-06 10:54:29,974 - ERROR - Error en generate_response: 403 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash' (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "aiplatform.googleapis.com"
+metadata {
+  key: "resource"
+  value: "projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash"
+}
+metadata {
+  key: "permission"
+  value: "aiplatform.endpoints.predict"
+}
+]
+2025-02-06 10:54:29,976 - INFO - 127.0.0.1 - - [06/Feb/2025 10:54:29] "POST /chat HTTP/1.1" 200 -
+2025-02-06 10:54:48,227 - INFO - 127.0.0.1 - - [06/Feb/2025 10:54:48] "GET / HTTP/1.1" 200 -
+2025-02-06 10:54:48,246 - INFO - 127.0.0.1 - - [06/Feb/2025 10:54:48] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-02-06 10:55:44,172 - INFO - 127.0.0.1 - - [06/Feb/2025 10:55:44] "GET / HTTP/1.1" 200 -
+2025-02-06 10:55:44,189 - INFO - 127.0.0.1 - - [06/Feb/2025 10:55:44] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-06 10:55:44,201 - INFO - 127.0.0.1 - - [06/Feb/2025 10:55:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 11:06:17,527 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:06:17,531 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:06:17,606 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-06 11:06:17,606 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 11:06:17,607 - INFO -  * Restarting with stat
+2025-02-06 11:06:18,685 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:06:18,688 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:06:18,710 - WARNING -  * Debugger is active!
+2025-02-06 11:06:18,727 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:06:24,586 - INFO - 127.0.0.1 - - [06/Feb/2025 11:06:24] "GET / HTTP/1.1" 200 -
+2025-02-06 11:06:24,607 - INFO - 127.0.0.1 - - [06/Feb/2025 11:06:24] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-02-06 11:06:32,440 - ERROR - Error en generate_response: 403 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash' (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "aiplatform.googleapis.com"
+metadata {
+  key: "resource"
+  value: "projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash"
+}
+metadata {
+  key: "permission"
+  value: "aiplatform.endpoints.predict"
+}
+]
+2025-02-06 11:06:32,442 - INFO - 127.0.0.1 - - [06/Feb/2025 11:06:32] "POST /chat HTTP/1.1" 200 -
+2025-02-06 11:06:41,880 - INFO - 127.0.0.1 - - [06/Feb/2025 11:06:41] "GET / HTTP/1.1" 200 -
+2025-02-06 11:06:41,897 - INFO - 127.0.0.1 - - [06/Feb/2025 11:06:41] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-06 11:06:41,910 - INFO - 127.0.0.1 - - [06/Feb/2025 11:06:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 11:08:41,352 - INFO -  * Detected change in '/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/mock/bigquery_client_mock.py', reloading
+2025-02-06 11:08:41,725 - INFO -  * Restarting with stat
+2025-02-06 11:08:43,364 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:08:43,368 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:08:43,396 - WARNING -  * Debugger is active!
+2025-02-06 11:08:43,425 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:09:10,894 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:09:10,898 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:09:10,933 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-06 11:09:10,933 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 11:09:10,934 - INFO -  * Restarting with stat
+2025-02-06 11:09:12,050 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:09:12,054 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:09:12,086 - WARNING -  * Debugger is active!
+2025-02-06 11:09:12,093 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:09:29,183 - INFO - 127.0.0.1 - - [06/Feb/2025 11:09:29] "GET / HTTP/1.1" 200 -
+2025-02-06 11:09:29,210 - INFO - 127.0.0.1 - - [06/Feb/2025 11:09:29] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2025-02-06 11:09:31,631 - INFO - 127.0.0.1 - - [06/Feb/2025 11:09:31] "GET / HTTP/1.1" 200 -
+2025-02-06 11:09:31,641 - INFO - 127.0.0.1 - - [06/Feb/2025 11:09:31] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-06 11:09:31,652 - INFO - 127.0.0.1 - - [06/Feb/2025 11:09:31] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 11:09:39,176 - ERROR - Error en generate_response: 403 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash' (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "aiplatform.googleapis.com"
+metadata {
+  key: "resource"
+  value: "projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash"
+}
+metadata {
+  key: "permission"
+  value: "aiplatform.endpoints.predict"
+}
+]
+2025-02-06 11:09:39,177 - INFO - 127.0.0.1 - - [06/Feb/2025 11:09:39] "POST /chat HTTP/1.1" 200 -
+2025-02-06 11:11:10,096 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-02-06 11:11:10,096 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 11:11:10,097 - INFO -  * Restarting with stat
+2025-02-06 11:11:10,185 - WARNING -  * Debugger is active!
+2025-02-06 11:11:10,190 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:11:32,877 - INFO -  * Detected change in '/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/mock/app_mock.py', reloading
+2025-02-06 11:11:32,901 - INFO -  * Restarting with stat
+2025-02-06 11:12:44,518 - INFO -  * Restarting with stat
+2025-02-06 11:12:44,671 - WARNING -  * Debugger is active!
+2025-02-06 11:12:44,676 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:12:56,011 - INFO -  * Detected change in '/Users/gabrielnoguera/Documents/DataHub/app-flask/cofaresapp/mock/app_mock.py', reloading
+2025-02-06 11:12:56,034 - INFO -  * Restarting with stat
+2025-02-06 11:12:56,143 - WARNING -  * Debugger is active!
+2025-02-06 11:12:56,146 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:13:48,835 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:13:48,839 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:13:48,897 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2025-02-06 11:13:48,897 - INFO - [33mPress CTRL+C to quit[0m
+2025-02-06 11:13:48,898 - INFO -  * Restarting with stat
+2025-02-06 11:13:50,054 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:13:50,058 - WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+2025-02-06 11:13:50,077 - WARNING -  * Debugger is active!
+2025-02-06 11:13:50,085 - INFO -  * Debugger PIN: 128-574-198
+2025-02-06 11:13:52,362 - INFO - 127.0.0.1 - - [06/Feb/2025 11:13:52] "GET / HTTP/1.1" 200 -
+2025-02-06 11:13:52,384 - INFO - 127.0.0.1 - - [06/Feb/2025 11:13:52] "GET /static/styles.css HTTP/1.1" 200 -
+2025-02-06 11:13:52,397 - INFO - 127.0.0.1 - - [06/Feb/2025 11:13:52] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 11:13:59,209 - ERROR - Error en generate_response: 403 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash' (or it may not exist). [reason: "IAM_PERMISSION_DENIED"
+domain: "aiplatform.googleapis.com"
+metadata {
+  key: "resource"
+  value: "projects/dataton-2024-team-01-cofares/locations/europe-west4/publishers/google/models/gemini-1.5-flash"
+}
+metadata {
+  key: "permission"
+  value: "aiplatform.endpoints.predict"
+}
+]
+2025-02-06 11:13:59,210 - INFO - 127.0.0.1 - - [06/Feb/2025 11:13:59] "POST /chat HTTP/1.1" 200 -
